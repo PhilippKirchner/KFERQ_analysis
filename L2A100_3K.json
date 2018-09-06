@@ -1,0 +1,4086 @@
+{
+"BlastOutput2": [
+{
+    "report": {
+      "program": "blastp",
+      "version": "BLASTP 2.7.0+",
+      "reference": "Zheng Zhang, Alejandro A. Sch&auml;ffer, Webb Miller, Thomas L. Madden, David J. Lipman, Eugene V. Koonin, and Stephen F. Altschul (1998), \"Protein sequence similarity searches using patterns as seeds\", Nucleic Acids Res. 26:3986-3990.",
+      "search_target": {
+        "db": "nr"
+      },
+      "params": {
+        "matrix": "BLOSUM62",
+        "expect": 10,
+        "gap_open": 11,
+        "gap_extend": 1,
+        "filter": "F",
+        "pattern": "[KHR]-[KHR]-[KHR]-x(1,3)-G-Y-E-Q-F"
+      },
+      "results": {
+        "search": {
+          "query_id": "Query_169424",
+          "query_title": "LAMP2A_human_100AA_tail",
+          "query_len": 100,
+          "hits": [
+            {
+              "num": 1,
+              "description": [
+                {
+                  "id": "gi|1099314730|ref|XP_018874837.1|",
+                  "accession": "XP_018874837",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Gorilla gorilla gorilla]",
+                  "taxid": 9595,
+                  "sciname": "Gorilla gorilla gorilla"
+                }
+              ],
+              "len": 363,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 173.987,
+                  "score": 462,
+                  "evalue": 7.32992e-51,
+                  "identity": 100,
+                  "positive": 100,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 264,
+                  "hit_to": 363,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 2,
+              "description": [
+                {
+                  "id": "gi|1809215|gb|AAB41647.1|",
+                  "accession": "AAB41647",
+                  "title": "lysosomal membrane glycoprotein-2 [Homo sapiens]",
+                  "taxid": 9606,
+                  "sciname": "Homo sapiens"
+                }
+              ],
+              "len": 410,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 173.987,
+                  "score": 462,
+                  "evalue": 7.32992e-51,
+                  "identity": 100,
+                  "positive": 100,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 311,
+                  "hit_to": 410,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 3,
+              "description": [
+                {
+                  "id": "gi|4504957|ref|NP_002285.1|",
+                  "accession": "NP_002285",
+                  "title": "lysosome-associated membrane glycoprotein 2 isoform A precursor [Homo sapiens]",
+                  "taxid": 9606,
+                  "sciname": "Homo sapiens"
+                },
+                {
+                  "id": "gi|1708854|sp|P13473.2|LAMP2_HUMAN",
+                  "accession": "P13473",
+                  "title": "RecName: Full=Lysosome-associated membrane glycoprotein 2; Short=LAMP-2; Short=Lysosome-associated membrane protein 2; AltName: Full=CD107 antigen-like family member B; AltName: Full=LGP-96; AltName: CD_antigen=CD107b; Flags: Precursor",
+                  "taxid": 9606,
+                  "sciname": "Homo sapiens"
+                },
+                {
+                  "id": "gi|704463|emb|CAA54416.1|",
+                  "accession": "CAA54416",
+                  "title": "lysosome-associated membrane protein-2 [Homo sapiens]",
+                  "taxid": 9606,
+                  "sciname": "Homo sapiens"
+                },
+                {
+                  "id": "gi|2340103|gb|AAB67314.1|",
+                  "accession": "AAB67314",
+                  "title": "lysosome-associated membrane protein-2 (LAMP2) [Homo sapiens]",
+                  "taxid": 9606,
+                  "sciname": "Homo sapiens"
+                },
+                {
+                  "id": "gi|119632288|gb|EAX11883.1|",
+                  "accession": "EAX11883",
+                  "title": "lysosomal-associated membrane protein 2, isoform CRA_c [Homo sapiens]",
+                  "taxid": 9606,
+                  "sciname": "Homo sapiens"
+                },
+                {
+                  "id": "gi|158255616|dbj|BAF83779.1|",
+                  "accession": "BAF83779",
+                  "title": "unnamed protein product [Homo sapiens]",
+                  "taxid": 9606,
+                  "sciname": "Homo sapiens"
+                }
+              ],
+              "len": 410,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 173.987,
+                  "score": 462,
+                  "evalue": 7.32992e-51,
+                  "identity": 100,
+                  "positive": 100,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 311,
+                  "hit_to": 410,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 4,
+              "description": [
+                {
+                  "id": "gi|795401155|ref|XP_011942928.1|",
+                  "accession": "XP_011942928",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Cercocebus atys]",
+                  "taxid": 9531,
+                  "sciname": "Cercocebus atys"
+                }
+              ],
+              "len": 410,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 173.987,
+                  "score": 462,
+                  "evalue": 7.32992e-51,
+                  "identity": 99,
+                  "positive": 99,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 311,
+                  "hit_to": 410,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 5,
+              "description": [
+                {
+                  "id": "gi|795278938|ref|XP_011813385.1|",
+                  "accession": "XP_011813385",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Colobus angolensis palliatus]",
+                  "taxid": 336983,
+                  "sciname": "Colobus angolensis palliatus"
+                }
+              ],
+              "len": 410,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 173.987,
+                  "score": 462,
+                  "evalue": 7.32992e-51,
+                  "identity": 99,
+                  "positive": 99,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 311,
+                  "hit_to": 410,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 6,
+              "description": [
+                {
+                  "id": "gi|795122131|ref|XP_011832577.1|",
+                  "accession": "XP_011832577",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Mandrillus leucophaeus]",
+                  "taxid": 9568,
+                  "sciname": "Mandrillus leucophaeus"
+                }
+              ],
+              "len": 410,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 173.987,
+                  "score": 462,
+                  "evalue": 7.32992e-51,
+                  "identity": 99,
+                  "positive": 99,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 311,
+                  "hit_to": 410,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 7,
+              "description": [
+                {
+                  "id": "gi|635147702|ref|XP_008017646.1|",
+                  "accession": "XP_008017646",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Chlorocebus sabaeus]",
+                  "taxid": 60711,
+                  "sciname": "Chlorocebus sabaeus"
+                }
+              ],
+              "len": 410,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 173.987,
+                  "score": 462,
+                  "evalue": 7.32992e-51,
+                  "identity": 100,
+                  "positive": 100,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 311,
+                  "hit_to": 410,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 8,
+              "description": [
+                {
+                  "id": "gi|402911290|ref|XP_003918269.1|",
+                  "accession": "XP_003918269",
+                  "title": "lysosome-associated membrane glycoprotein 2 isoform X2 [Papio anubis]",
+                  "taxid": 9555,
+                  "sciname": "Papio anubis"
+                }
+              ],
+              "len": 410,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 173.987,
+                  "score": 462,
+                  "evalue": 7.32992e-51,
+                  "identity": 99,
+                  "positive": 99,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 311,
+                  "hit_to": 410,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 9,
+              "description": [
+                {
+                  "id": "gi|397505262|ref|XP_003823188.1|",
+                  "accession": "XP_003823188",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Pan paniscus]",
+                  "taxid": 9597,
+                  "sciname": "Pan paniscus"
+                },
+                {
+                  "id": "gi|1034191134|ref|XP_016798716.1|",
+                  "accession": "XP_016798716",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Pan troglodytes]",
+                  "taxid": 9598,
+                  "sciname": "Pan troglodytes"
+                }
+              ],
+              "len": 410,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 173.987,
+                  "score": 462,
+                  "evalue": 7.32992e-51,
+                  "identity": 100,
+                  "positive": 100,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 311,
+                  "hit_to": 410,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 10,
+              "description": [
+                {
+                  "id": "gi|395754380|ref|XP_003779762.1|",
+                  "accession": "XP_003779762",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Pongo abelii]",
+                  "taxid": 9601,
+                  "sciname": "Pongo abelii"
+                }
+              ],
+              "len": 410,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 173.987,
+                  "score": 462,
+                  "evalue": 7.32992e-51,
+                  "identity": 100,
+                  "positive": 100,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 311,
+                  "hit_to": 410,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 11,
+              "description": [
+                {
+                  "id": "gi|332226294|ref|XP_003262323.1|",
+                  "accession": "XP_003262323",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Nomascus leucogenys]",
+                  "taxid": 61853,
+                  "sciname": "Nomascus leucogenys"
+                }
+              ],
+              "len": 410,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 173.987,
+                  "score": 462,
+                  "evalue": 7.32992e-51,
+                  "identity": 99,
+                  "positive": 99,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 311,
+                  "hit_to": 410,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 12,
+              "description": [
+                {
+                  "id": "gi|544522660|ref|XP_005594543.1|",
+                  "accession": "XP_005594543",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Macaca fascicularis]",
+                  "taxid": 9541,
+                  "sciname": "Macaca fascicularis"
+                },
+                {
+                  "id": "gi|795543205|ref|XP_011716854.1|",
+                  "accession": "XP_011716854",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Macaca nemestrina]",
+                  "taxid": 9545,
+                  "sciname": "Macaca nemestrina"
+                },
+                {
+                  "id": "gi|967506951|ref|XP_014983588.1|",
+                  "accession": "XP_014983588",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Macaca mulatta]",
+                  "taxid": 9544,
+                  "sciname": "Macaca mulatta"
+                },
+                {
+                  "id": "gi|67970736|dbj|BAE01710.1|",
+                  "accession": "BAE01710",
+                  "title": "unnamed protein product [Macaca fascicularis]",
+                  "taxid": 9541,
+                  "sciname": "Macaca fascicularis"
+                }
+              ],
+              "len": 410,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 173.987,
+                  "score": 462,
+                  "evalue": 7.32992e-51,
+                  "identity": 99,
+                  "positive": 99,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 311,
+                  "hit_to": 410,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 13,
+              "description": [
+                {
+                  "id": "gi|1094569|prf||2106261A",
+                  "accession": "2106261A",
+                  "title": "lysosome-associated membrane protein 2",
+                  "taxid": 9606,
+                  "sciname": "Homo sapiens"
+                }
+              ],
+              "len": 268,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 172.828,
+                  "score": 459,
+                  "evalue": 1.63708e-50,
+                  "identity": 99,
+                  "positive": 100,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 169,
+                  "hit_to": 268,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCTADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDC+ADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 14,
+              "description": [
+                {
+                  "id": "gi|724955883|ref|XP_010353039.1|",
+                  "accession": "XP_010353039",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X3 [Rhinopithecus roxellana]",
+                  "taxid": 61622,
+                  "sciname": "Rhinopithecus roxellana"
+                }
+              ],
+              "len": 357,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 170.896,
+                  "score": 454,
+                  "evalue": 6.24669e-50,
+                  "identity": 98,
+                  "positive": 98,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 258,
+                  "hit_to": 357,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSRAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVS AFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 15,
+              "description": [
+                {
+                  "id": "gi|724955878|ref|XP_010353036.1|",
+                  "accession": "XP_010353036",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X1 [Rhinopithecus roxellana]",
+                  "taxid": 61622,
+                  "sciname": "Rhinopithecus roxellana"
+                }
+              ],
+              "len": 410,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 170.896,
+                  "score": 454,
+                  "evalue": 6.24669e-50,
+                  "identity": 98,
+                  "positive": 98,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 311,
+                  "hit_to": 410,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSRAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVS AFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 16,
+              "description": [
+                {
+                  "id": "gi|1131257661|ref|XP_019805013.1|",
+                  "accession": "XP_019805013",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Tursiops truncatus]",
+                  "taxid": 9739,
+                  "sciname": "Tursiops truncatus"
+                }
+              ],
+              "len": 411,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 170.51,
+                  "score": 453,
+                  "evalue": 8.16506e-50,
+                  "identity": 97,
+                  "positive": 98,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 312,
+                  "hit_to": 411,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVMEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNV +GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 17,
+              "description": [
+                {
+                  "id": "gi|1111203143|ref|XP_019277385.1|",
+                  "accession": "XP_019277385",
+                  "title": "PREDICTED: LOW QUALITY PROTEIN: lysosome-associated membrane glycoprotein 2 [Panthera pardus]",
+                  "taxid": 9691,
+                  "sciname": "Panthera pardus"
+                }
+              ],
+              "len": 469,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 170.51,
+                  "score": 453,
+                  "evalue": 8.16506e-50,
+                  "identity": 97,
+                  "positive": 98,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 370,
+                  "hit_to": 469,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVMEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNV +GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 18,
+              "description": [
+                {
+                  "id": "gi|1044440919|ref|XP_017371831.1|",
+                  "accession": "XP_017371831",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Cebus capucinus imitator]",
+                  "taxid": 1737458,
+                  "sciname": "Cebus capucinus imitator"
+                }
+              ],
+              "len": 410,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 170.51,
+                  "score": 453,
+                  "evalue": 8.16506e-50,
+                  "identity": 97,
+                  "positive": 98,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 311,
+                  "hit_to": 410,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVIEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNV +GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 19,
+              "description": [
+                {
+                  "id": "gi|1016693315|ref|XP_016069541.1|",
+                  "accession": "XP_016069541",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Miniopterus natalensis]",
+                  "taxid": 291302,
+                  "sciname": "Miniopterus natalensis"
+                }
+              ],
+              "len": 411,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 170.51,
+                  "score": 453,
+                  "evalue": 8.16506e-50,
+                  "identity": 96,
+                  "positive": 97,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 312,
+                  "hit_to": 411,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVIEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHTGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNV +GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HH GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 20,
+              "description": [
+                {
+                  "id": "gi|74008247|ref|XP_864590.1|",
+                  "accession": "XP_864590",
+                  "title": "lysosome-associated membrane glycoprotein 2 isoform X3 [Canis lupus familiaris]",
+                  "taxid": 9615,
+                  "sciname": "Canis lupus familiaris"
+                }
+              ],
+              "len": 411,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 170.51,
+                  "score": 453,
+                  "evalue": 8.16506e-50,
+                  "identity": 97,
+                  "positive": 98,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 312,
+                  "hit_to": 411,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVMEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNV +GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 21,
+              "description": [
+                {
+                  "id": "gi|961761865|ref|XP_014939786.1|",
+                  "accession": "XP_014939786",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 [Acinonyx jubatus]",
+                  "taxid": 32536,
+                  "sciname": "Acinonyx jubatus"
+                }
+              ],
+              "len": 504,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 170.51,
+                  "score": 453,
+                  "evalue": 8.16506e-50,
+                  "identity": 97,
+                  "positive": 98,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 405,
+                  "hit_to": 504,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVMEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNV +GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 22,
+              "description": [
+                {
+                  "id": "gi|587021718|ref|XP_004000896.2|",
+                  "accession": "XP_004000896",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X1 [Felis catus]",
+                  "taxid": 9685,
+                  "sciname": "Felis catus"
+                }
+              ],
+              "len": 469,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 170.51,
+                  "score": 453,
+                  "evalue": 8.16506e-50,
+                  "identity": 97,
+                  "positive": 98,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 370,
+                  "hit_to": 469,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVMEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNV +GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 23,
+              "description": [
+                {
+                  "id": "gi|594660827|ref|XP_007178669.1|",
+                  "accession": "XP_007178669",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X1 [Balaenoptera acutorostrata scammoni]",
+                  "taxid": 310752,
+                  "sciname": "Balaenoptera acutorostrata scammoni"
+                }
+              ],
+              "len": 412,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 170.51,
+                  "score": 453,
+                  "evalue": 8.16506e-50,
+                  "identity": 97,
+                  "positive": 98,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 313,
+                  "hit_to": 412,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVMEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNV +GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 24,
+              "description": [
+                {
+                  "id": "gi|593754478|ref|XP_007116125.1|",
+                  "accession": "XP_007116125",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X1 [Physeter catodon]",
+                  "taxid": 9755,
+                  "sciname": "Physeter catodon"
+                }
+              ],
+              "len": 411,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 170.51,
+                  "score": 453,
+                  "evalue": 8.16506e-50,
+                  "identity": 97,
+                  "positive": 98,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 312,
+                  "hit_to": 411,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVMEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNV +GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 25,
+              "description": [
+                {
+                  "id": "gi|466085764|ref|XP_004285632.1|",
+                  "accession": "XP_004285632",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X1 [Orcinus orca]",
+                  "taxid": 9733,
+                  "sciname": "Orcinus orca"
+                }
+              ],
+              "len": 411,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 170.51,
+                  "score": 453,
+                  "evalue": 8.16506e-50,
+                  "identity": 97,
+                  "positive": 98,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 312,
+                  "hit_to": 411,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVMEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNV +GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 26,
+              "description": [
+                {
+                  "id": "gi|403279171|ref|XP_003931138.1|",
+                  "accession": "XP_003931138",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X1 [Saimiri boliviensis boliviensis]",
+                  "taxid": 39432,
+                  "sciname": "Saimiri boliviensis boliviensis"
+                }
+              ],
+              "len": 410,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 170.51,
+                  "score": 453,
+                  "evalue": 8.16506e-50,
+                  "identity": 97,
+                  "positive": 98,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 311,
+                  "hit_to": 410,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVIEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNV +GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 27,
+              "description": [
+                {
+                  "id": "gi|602708457|ref|XP_007464489.1|",
+                  "accession": "XP_007464489",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Lipotes vexillifer]",
+                  "taxid": 118797,
+                  "sciname": "Lipotes vexillifer"
+                }
+              ],
+              "len": 411,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 169.351,
+                  "score": 450,
+                  "evalue": 1.82337e-49,
+                  "identity": 96,
+                  "positive": 98,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 312,
+                  "hit_to": 411,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSMANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVMEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FS+ANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNV +GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 28,
+              "description": [
+                {
+                  "id": "gi|671034314|ref|XP_008707987.1|",
+                  "accession": "XP_008707987",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 [Ursus maritimus]",
+                  "taxid": 29073,
+                  "sciname": "Ursus maritimus"
+                }
+              ],
+              "len": 420,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 168.964,
+                  "score": 449,
+                  "evalue": 2.38329e-49,
+                  "identity": 96,
+                  "positive": 98,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 321,
+                  "hit_to": 420,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFELRVQPFNVMEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTF+LRVQPFNV +GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 29,
+              "description": [
+                {
+                  "id": "gi|667313896|ref|XP_008585586.1|",
+                  "accession": "XP_008585586",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Galeopterus variegatus]",
+                  "taxid": 482537,
+                  "sciname": "Galeopterus variegatus"
+                }
+              ],
+              "len": 411,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 168.964,
+                  "score": 449,
+                  "evalue": 2.38329e-49,
+                  "identity": 96,
+                  "positive": 97,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 312,
+                  "hit_to": 411,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGTFQINTFDLRVQPFNVMEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSG FQINTFDLRVQPFNV +GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 30,
+              "description": [
+                {
+                  "id": "gi|472375050|ref|XP_004406975.1|",
+                  "accession": "XP_004406975",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Odobenus rosmarus divergens]",
+                  "taxid": 9708,
+                  "sciname": "Odobenus rosmarus divergens"
+                }
+              ],
+              "len": 411,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 168.964,
+                  "score": 449,
+                  "evalue": 2.38329e-49,
+                  "identity": 96,
+                  "positive": 97,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 312,
+                  "hit_to": 411,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVMEGKYSTAQDCSADDDNFLVPIVVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNV +GKYSTAQDCSADDDNFLVPI VGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 31,
+              "description": [
+                {
+                  "id": "gi|301774378|ref|XP_002922590.1|",
+                  "accession": "XP_002922590",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X1 [Ailuropoda melanoleuca]",
+                  "taxid": 9646,
+                  "sciname": "Ailuropoda melanoleuca"
+                }
+              ],
+              "len": 413,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 168.964,
+                  "score": 449,
+                  "evalue": 2.38329e-49,
+                  "identity": 95,
+                  "positive": 98,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 314,
+                  "hit_to": 413,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFELRVQPFNVMEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHNAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTF+LRVQPFNV +GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK H+AGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 32,
+              "description": [
+                {
+                  "id": "gi|1212161312|ref|XP_021542362.1|",
+                  "accession": "XP_021542362",
+                  "title": "lysosome-associated membrane glycoprotein 2 isoform X2 [Neomonachus schauinslandi]",
+                  "taxid": 29088,
+                  "sciname": "Monachus schauinslandi"
+                }
+              ],
+              "len": 411,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 168.578,
+                  "score": 448,
+                  "evalue": 3.11513e-49,
+                  "identity": 95,
+                  "positive": 97,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 312,
+                  "hit_to": 411,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVMEGKYSTAQDCSADDDNFLVPIVVGAALAGILILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNV +GKYSTAQDCSADDDNFLVPI VGAALAG+LILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 33,
+              "description": [
+                {
+                  "id": "gi|395848866|ref|XP_003797063.1|",
+                  "accession": "XP_003797063",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X1 [Otolemur garnettii]",
+                  "taxid": 30611,
+                  "sciname": "Otolemur garnettii"
+                }
+              ],
+              "len": 414,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 168.578,
+                  "score": 448,
+                  "evalue": 3.11513e-49,
+                  "identity": 95,
+                  "positive": 98,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 315,
+                  "hit_to": 414,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANDNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVMEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHSGYEQF",
+                  "midline": "FSIAN+NLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNV +GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HH+GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 34,
+              "description": [
+                {
+                  "id": "gi|511884575|ref|XP_004762120.1|",
+                  "accession": "XP_004762120",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Mustela putorius furo]",
+                  "taxid": 9669,
+                  "sciname": "Mustela putorius furo"
+                }
+              ],
+              "len": 411,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 168.192,
+                  "score": 447,
+                  "evalue": 4.07168e-49,
+                  "identity": 95,
+                  "positive": 98,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 312,
+                  "hit_to": 411,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTISVSGAFQINTFDLRVQPFNVMEGKYSTAQDCSADDDSFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQT+SVSGAFQINTFDLRVQPFNV +GKYSTAQDCSADDD+FLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 35,
+              "description": [
+                {
+                  "id": "gi|1147378139|ref|XP_020038380.1|",
+                  "accession": "XP_020038380",
+                  "title": "lysosome-associated membrane glycoprotein 2 isoform X1 [Castor canadensis]",
+                  "taxid": 51338,
+                  "sciname": "Castor canadensis"
+                }
+              ],
+              "len": 411,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 167.805,
+                  "score": 446,
+                  "evalue": 5.32192e-49,
+                  "identity": 95,
+                  "positive": 97,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 312,
+                  "hit_to": 411,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGTFQINTFDLRVQPFNVKEGKYSTAQDCSADDDNYLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSG FQINTFDLRVQPFNV +GKYSTAQDCSADDDN+LVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 36,
+              "description": [
+                {
+                  "id": "gi|478526413|ref|XP_004437390.1|",
+                  "accession": "XP_004437390",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X1 [Ceratotherium simum simum]",
+                  "taxid": 73337,
+                  "sciname": "Ceratotherium simum simum"
+                }
+              ],
+              "len": 435,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 167.805,
+                  "score": 446,
+                  "evalue": 5.32192e-49,
+                  "identity": 95,
+                  "positive": 97,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 336,
+                  "hit_to": 435,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSVANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVKEAKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FS+ANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNV + KYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 37,
+              "description": [
+                {
+                  "id": "gi|1124029151|ref|XP_019573220.1|",
+                  "accession": "XP_019573220",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Rhinolophus sinicus]",
+                  "taxid": 89399,
+                  "sciname": "Rhinolophus sinicus"
+                }
+              ],
+              "len": 455,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 167.419,
+                  "score": 445,
+                  "evalue": 6.95602e-49,
+                  "identity": 94,
+                  "positive": 98,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 356,
+                  "hit_to": 455,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLTYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVVEGKYSTAQDCSADDDNFLVPIAVGAALAGVLIVVLLSYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNL+YWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNV +GKYSTAQDCSADDDNFLVPIAVGAALAGVLI+VLL+YFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 38,
+              "description": [
+                {
+                  "id": "gi|744599219|ref|XP_010989954.1|",
+                  "accession": "XP_010989954",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X1 [Camelus dromedarius]",
+                  "taxid": 9838,
+                  "sciname": "Camelus dromedarius"
+                }
+              ],
+              "len": 411,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 167.033,
+                  "score": 444,
+                  "evalue": 9.09183e-49,
+                  "identity": 95,
+                  "positive": 97,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 312,
+                  "hit_to": 411,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGTFQINTFDLRVQPFSVMEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSG FQINTFDLRVQPF+V +GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 39,
+              "description": [
+                {
+                  "id": "gi|562874871|ref|XP_006165271.1|",
+                  "accession": "XP_006165271",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X1 [Tupaia chinensis]",
+                  "taxid": 246437,
+                  "sciname": "Tupaia chinensis"
+                }
+              ],
+              "len": 411,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 167.033,
+                  "score": 444,
+                  "evalue": 9.09183e-49,
+                  "identity": 95,
+                  "positive": 97,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 312,
+                  "hit_to": 411,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGTFQINTFDLRVQPFSVKEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSG FQINTFDLRVQPF+V +GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 40,
+              "description": [
+                {
+                  "id": "gi|560930472|ref|XP_006191376.1|",
+                  "accession": "XP_006191376",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Camelus ferus]",
+                  "taxid": 419612,
+                  "sciname": "Camelus ferus"
+                },
+                {
+                  "id": "gi|743735879|ref|XP_010962242.1|",
+                  "accession": "XP_010962242",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X1 [Camelus bactrianus]",
+                  "taxid": 9837,
+                  "sciname": "Camelus bactrianus"
+                }
+              ],
+              "len": 411,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 167.033,
+                  "score": 444,
+                  "evalue": 9.09183e-49,
+                  "identity": 95,
+                  "positive": 97,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 312,
+                  "hit_to": 411,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGTFQINTFDLRVQPFSVMEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSG FQINTFDLRVQPF+V +GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 41,
+              "description": [
+                {
+                  "id": "gi|528756454|gb|EPY76113.1|",
+                  "accession": "EPY76113",
+                  "title": "lysosome-associated membrane glycoprotein 2 isoform 1 precursor [Camelus ferus]",
+                  "taxid": 419612,
+                  "sciname": "Camelus ferus"
+                }
+              ],
+              "len": 404,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 167.033,
+                  "score": 444,
+                  "evalue": 9.09183e-49,
+                  "identity": 95,
+                  "positive": 97,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 305,
+                  "hit_to": 404,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGTFQINTFDLRVQPFSVMEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSG FQINTFDLRVQPF+V +GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 42,
+              "description": [
+                {
+                  "id": "gi|513027011|ref|XP_004874658.1|",
+                  "accession": "XP_004874658",
+                  "title": "lysosome-associated membrane glycoprotein 2 isoform X1 [Heterocephalus glaber]",
+                  "taxid": 10181,
+                  "sciname": "Heterocephalus glaber"
+                }
+              ],
+              "len": 411,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 167.033,
+                  "score": 444,
+                  "evalue": 9.09183e-49,
+                  "identity": 94,
+                  "positive": 98,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 312,
+                  "hit_to": 411,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTLSVSGTFQINTFNLKVQPFNVTEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQT+SVSG FQINTF+L+VQPFNVT+GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 43,
+              "description": [
+                {
+                  "id": "gi|826346171|ref|XP_012518323.1|",
+                  "accession": "XP_012518323",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Propithecus coquereli]",
+                  "taxid": 379532,
+                  "sciname": "Propithecus coquereli"
+                }
+              ],
+              "len": 465,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 166.647,
+                  "score": 443,
+                  "evalue": 1.18834e-48,
+                  "identity": 95,
+                  "positive": 98,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 366,
+                  "hit_to": 465,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSTVNDNLSYWDAPLGSSYMCNKEQTISVSGAFQINTFDLRVQPFNVTKGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "midline": "FS  N+NLSYWDAPLGSSYMCNKEQT+SVSGAFQINTFDLRVQPFNVT+GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 44,
+              "description": [
+                {
+                  "id": "gi|1131298177|ref|XP_019811289.1|",
+                  "accession": "XP_019811289",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X1 [Bos indicus]",
+                  "taxid": 9915,
+                  "sciname": "Bos indicus"
+                }
+              ],
+              "len": 452,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 166.26,
+                  "score": 442,
+                  "evalue": 1.55319e-48,
+                  "identity": 94,
+                  "positive": 98,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 353,
+                  "hit_to": 452,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "YSISNTNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFSVTEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "+SI+N NLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPF+VT+GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 45,
+              "description": [
+                {
+                  "id": "gi|942042707|ref|XP_005891592.2|",
+                  "accession": "XP_005891592",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X1 [Bos mutus]",
+                  "taxid": 72004,
+                  "sciname": "Bos mutus"
+                }
+              ],
+              "len": 452,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 166.26,
+                  "score": 442,
+                  "evalue": 1.55319e-48,
+                  "identity": 94,
+                  "positive": 98,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 353,
+                  "hit_to": 452,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "YSISNTNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFSVTEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "+SI+N NLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPF+VT+GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 46,
+              "description": [
+                {
+                  "id": "gi|965874969|ref|XP_012005534.2|",
+                  "accession": "XP_012005534",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Ovis aries musimon]",
+                  "taxid": 9938,
+                  "sciname": "Ovis aries musimon"
+                }
+              ],
+              "len": 407,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 166.26,
+                  "score": 442,
+                  "evalue": 1.55319e-48,
+                  "identity": 94,
+                  "positive": 98,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 308,
+                  "hit_to": 407,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "YSISNTNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFSVTEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "+SI+N NLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPF+VT+GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 47,
+              "description": [
+                {
+                  "id": "gi|742085850|ref|XP_010830553.1|",
+                  "accession": "XP_010830553",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X1 [Bison bison bison]",
+                  "taxid": 43346,
+                  "sciname": "Bison bison bison"
+                }
+              ],
+              "len": 294,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 166.26,
+                  "score": 442,
+                  "evalue": 1.55319e-48,
+                  "identity": 94,
+                  "positive": 98,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 195,
+                  "hit_to": 294,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "YSISNTNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFSVTEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "+SI+N NLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPF+VT+GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 48,
+              "description": [
+                {
+                  "id": "gi|640827899|ref|XP_008070816.1|",
+                  "accession": "XP_008070816",
+                  "title": "lysosome-associated membrane glycoprotein 2 isoform X2 [Carlito syrichta]",
+                  "taxid": 1868482,
+                  "sciname": "Carlito syrichta"
+                }
+              ],
+              "len": 411,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 166.26,
+                  "score": 442,
+                  "evalue": 1.55319e-48,
+                  "identity": 95,
+                  "positive": 96,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 312,
+                  "hit_to": 411,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVKEGKYSTAQDCSADGDNFLVPIVVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNV +GKYSTAQDCSAD DNFLVPI VGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 49,
+              "description": [
+                {
+                  "id": "gi|594048955|ref|XP_006048862.1|",
+                  "accession": "XP_006048862",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Bubalus bubalis]",
+                  "taxid": 89462,
+                  "sciname": "Bubalus bubalis"
+                }
+              ],
+              "len": 452,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 166.26,
+                  "score": 442,
+                  "evalue": 1.55319e-48,
+                  "identity": 94,
+                  "positive": 98,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 353,
+                  "hit_to": 452,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "YSISNTNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFSVTEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "+SI+N NLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPF+VT+GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 50,
+              "description": [
+                {
+                  "id": "gi|548529766|ref|XP_005700396.1|",
+                  "accession": "XP_005700396",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X1 [Capra hircus]",
+                  "taxid": 9925,
+                  "sciname": "Capra hircus"
+                }
+              ],
+              "len": 452,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 166.26,
+                  "score": 442,
+                  "evalue": 1.55319e-48,
+                  "identity": 94,
+                  "positive": 98,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 353,
+                  "hit_to": 452,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "YSISNTNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFSVTEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "+SI+N NLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPF+VT+GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 51,
+              "description": [
+                {
+                  "id": "gi|164420738|ref|NP_001106715.1|",
+                  "accession": "NP_001106715",
+                  "title": "lysosome-associated membrane glycoprotein 2 isoform 1 precursor [Bos taurus]",
+                  "taxid": 9913,
+                  "sciname": "Bos taurus"
+                },
+                {
+                  "id": "gi|296471296|tpg|DAA13411.1|",
+                  "accession": "DAA13411",
+                  "title": "TPA: lysosomal-associated membrane protein 2 isoform 1 [Bos taurus]",
+                  "taxid": 9913,
+                  "sciname": "Bos taurus"
+                }
+              ],
+              "len": 407,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 166.26,
+                  "score": 442,
+                  "evalue": 1.55319e-48,
+                  "identity": 94,
+                  "positive": 98,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 308,
+                  "hit_to": 407,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "YSISNTNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFSVTEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "+SI+N NLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPF+VT+GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 52,
+              "description": [
+                {
+                  "id": "gi|346716335|ref|NP_001231184.1|",
+                  "accession": "NP_001231184",
+                  "title": "lysosome-associated membrane glycoprotein 2 isoform 1 precursor [Sus scrofa]",
+                  "taxid": 9823,
+                  "sciname": "Sus scrofa"
+                }
+              ],
+              "len": 411,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 165.874,
+                  "score": 441,
+                  "evalue": 2.03006e-48,
+                  "identity": 94,
+                  "positive": 98,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 312,
+                  "hit_to": 411,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFNLRVQPFSVMEGKYSTAQDCSADDDNFIVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTF+LRVQPF+V +GKYSTAQDCSADDDNF+VPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 53,
+              "description": [
+                {
+                  "id": "gi|556716156|ref|XP_005954004.1|",
+                  "accession": "XP_005954004",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X1 [Pantholops hodgsonii]",
+                  "taxid": 59538,
+                  "sciname": "Pantholops hodgsonii"
+                }
+              ],
+              "len": 452,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 165.874,
+                  "score": 441,
+                  "evalue": 2.03006e-48,
+                  "identity": 93,
+                  "positive": 98,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 353,
+                  "hit_to": 452,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "YSISNTNLSYWDAPLGSSYMCNKEQTISVSGAFQINTFDLRVQPFSVTEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "+SI+N NLSYWDAPLGSSYMCNKEQT+SVSGAFQINTFDLRVQPF+VT+GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 54,
+              "description": [
+                {
+                  "id": "gi|560987558|ref|XP_006215958.1|",
+                  "accession": "XP_006215958",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Vicugna pacos]",
+                  "taxid": 30538,
+                  "sciname": "Vicugna pacos"
+                }
+              ],
+              "len": 411,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 165.488,
+                  "score": 440,
+                  "evalue": 2.65333e-48,
+                  "identity": 94,
+                  "positive": 96,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 312,
+                  "hit_to": 411,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSITNNNLSYWDAPLGSSYMCNKEQTVSVSGTFQINTFDLRVQPFSVMEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSI NNNLSYWDAPLGSSYMCNKEQTVSVSG FQINTFDLRVQPF+V +GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 55,
+              "description": [
+                {
+                  "id": "gi|1187542209|ref|XP_020766710.1|",
+                  "accession": "XP_020766710",
+                  "title": "lysosome-associated membrane glycoprotein 2 isoform X2 [Odocoileus virginianus texanus]",
+                  "taxid": 9880,
+                  "sciname": "Odocoileus virginianus texanus"
+                }
+              ],
+              "len": 451,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 165.101,
+                  "score": 439,
+                  "evalue": 3.46794e-48,
+                  "identity": 93,
+                  "positive": 98,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 352,
+                  "hit_to": 451,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "YSISNTNLSYWDAPLGSSYMCNREQTVSVSGAFQINTFDLRVQPFSVTEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "+SI+N NLSYWDAPLGSSYMCN+EQTVSVSGAFQINTFDLRVQPF+VT+GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 56,
+              "description": [
+                {
+                  "id": "gi|1121954405|ref|XP_019488824.1|",
+                  "accession": "XP_019488824",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 [Hipposideros armiger]",
+                  "taxid": 186990,
+                  "sciname": "Hipposideros armiger"
+                }
+              ],
+              "len": 355,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 165.101,
+                  "score": 439,
+                  "evalue": 3.46794e-48,
+                  "identity": 93,
+                  "positive": 97,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 256,
+                  "hit_to": 355,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIGNNNLTYWDAPLGSSYMCNREQTVSVSGAFQINTFDLRVQPFSVVEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSI NNNL+YWDAPLGSSYMCN+EQTVSVSGAFQINTFDLRVQPF+V +GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 57,
+              "description": [
+                {
+                  "id": "gi|829738805|ref|XP_012594467.1|",
+                  "accession": "XP_012594467",
+                  "title": "lysosome-associated membrane glycoprotein 2 isoform X3 [Microcebus murinus]",
+                  "taxid": 30608,
+                  "sciname": "Microcebus murinus"
+                }
+              ],
+              "len": 468,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 164.715,
+                  "score": 438,
+                  "evalue": 4.53261e-48,
+                  "identity": 97,
+                  "positive": 99,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 368,
+                  "hit_to": 468,
+                  "align_len": 101,
+                  "gaps": 1,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQ-GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANDNLSYWDAPLGSSYMCNKEQTISVSGAFQINTFDLRVQPFNVTAAGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "midline": "FSIAN+NLSYWDAPLGSSYMCNKEQT+SVSGAFQINTFDLRVQPFNVT  GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 58,
+              "description": [
+                {
+                  "id": "gi|958809803|ref|XP_014686832.1|",
+                  "accession": "XP_014686832",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X1 [Equus asinus]",
+                  "taxid": 9793,
+                  "sciname": "Equus asinus"
+                }
+              ],
+              "len": 417,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 164.329,
+                  "score": 437,
+                  "evalue": 5.92412e-48,
+                  "identity": 94,
+                  "positive": 94,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 318,
+                  "hit_to": 417,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSFANNNLSYWDAPLGSSYMCNKEQTVSVSGEFQINTFDLRVQPFNVKDGKYSTAQDCRADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FS ANNNLSYWDAPLGSSYMCNKEQTVSVSG FQINTFDLRVQPFNV  GKYSTAQDC ADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 59,
+              "description": [
+                {
+                  "id": "gi|731227780|ref|XP_010627876.1|",
+                  "accession": "XP_010627876",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Fukomys damarensis]",
+                  "taxid": 885580,
+                  "sciname": "Fukomys damarensis"
+                }
+              ],
+              "len": 411,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 164.329,
+                  "score": 437,
+                  "evalue": 5.92412e-48,
+                  "identity": 94,
+                  "positive": 96,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 312,
+                  "hit_to": 411,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGTFQINTFSLKVQPFNVTEGKYSTAQDCSADVDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSG FQINTF L+VQPFNVT+GKYSTAQDCSAD DNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 60,
+              "description": [
+                {
+                  "id": "gi|676276780|gb|KFO30996.1|",
+                  "accession": "KFO30996",
+                  "title": "Lysosome-associated membrane glycoprotein 2, partial [Fukomys damarensis]",
+                  "taxid": 885580,
+                  "sciname": "Fukomys damarensis"
+                }
+              ],
+              "len": 396,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 164.329,
+                  "score": 437,
+                  "evalue": 5.92412e-48,
+                  "identity": 94,
+                  "positive": 96,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 297,
+                  "hit_to": 396,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGTFQINTFSLKVQPFNVTEGKYSTAQDCSADVDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSG FQINTF L+VQPFNVT+GKYSTAQDCSAD DNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 61,
+              "description": [
+                {
+                  "id": "gi|664761009|ref|XP_008538113.1|",
+                  "accession": "XP_008538113",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X1 [Equus przewalskii]",
+                  "taxid": 9798,
+                  "sciname": "Equus przewalskii"
+                }
+              ],
+              "len": 417,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 164.329,
+                  "score": 437,
+                  "evalue": 5.92412e-48,
+                  "identity": 94,
+                  "positive": 94,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 318,
+                  "hit_to": 417,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSFANNNLSYWDAPLGSSYMCNKEQTVSVSGEFQINTFDLRVQPFNVKDGKYSTAQDCRADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FS ANNNLSYWDAPLGSSYMCNKEQTVSVSG FQINTFDLRVQPFNV  GKYSTAQDC ADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 62,
+              "description": [
+                {
+                  "id": "gi|338729534|ref|XP_001493687.3|",
+                  "accession": "XP_001493687",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Equus caballus]",
+                  "taxid": 9796,
+                  "sciname": "Equus caballus"
+                }
+              ],
+              "len": 417,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 164.329,
+                  "score": 437,
+                  "evalue": 5.92412e-48,
+                  "identity": 94,
+                  "positive": 94,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 318,
+                  "hit_to": 417,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSFANNNLSYWDAPLGSSYMCNKEQTVSVSGEFQINTFDLRVQPFNVKDGKYSTAQDCRADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FS ANNNLSYWDAPLGSSYMCNKEQTVSVSG FQINTFDLRVQPFNV  GKYSTAQDC ADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 63,
+              "description": [
+                {
+                  "id": "gi|655877736|ref|XP_008271378.1|",
+                  "accession": "XP_008271378",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Oryctolagus cuniculus]",
+                  "taxid": 9986,
+                  "sciname": "Oryctolagus cuniculus"
+                }
+              ],
+              "len": 456,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 163.943,
+                  "score": 436,
+                  "evalue": 7.74278e-48,
+                  "identity": 93,
+                  "positive": 95,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 357,
+                  "hit_to": 456,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANTNLSYWDAPLGSSYMCNKEQTVSVSETFQINTFDLRVQPFSVTEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHRAGYEQF",
+                  "midline": "FSIAN NLSYWDAPLGSSYMCNKEQTVSVS  FQINTFDLRVQPF+VT+GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK H AGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 64,
+              "description": [
+                {
+                  "id": "gi|488538888|ref|XP_004461076.1|",
+                  "accession": "XP_004461076",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 [Dasypus novemcinctus]",
+                  "taxid": 9361,
+                  "sciname": "Dasypus novemcinctus"
+                }
+              ],
+              "len": 413,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 163.943,
+                  "score": 436,
+                  "evalue": 7.74278e-48,
+                  "identity": 91,
+                  "positive": 93,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 314,
+                  "hit_to": 413,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FNITNNNLSYWDAPLGSSYMCNKEQTVSVSGTFQINTFGLRVQPFNVVEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHQTGYEQF",
+                  "midline": "F+I NNNLSYWDAPLGSSYMCNKEQTVSVSG FQINTF LRVQPFNV +GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK H  GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 65,
+              "description": [
+                {
+                  "id": "gi|426257570|ref|XP_004022399.1|",
+                  "accession": "XP_004022399",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Ovis aries]",
+                  "taxid": 9940,
+                  "sciname": "Ovis aries"
+                }
+              ],
+              "len": 407,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 163.943,
+                  "score": 436,
+                  "evalue": 7.74278e-48,
+                  "identity": 93,
+                  "positive": 97,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 308,
+                  "hit_to": 407,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "YSISNTNLSYWDAPLGSSYMCNKEQTVSVSGALQINTFDLRVQPFSVTEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "+SI+N NLSYWDAPLGSSYMCNKEQTVSVSGA QINTFDLRVQPF+VT+GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 66,
+              "description": [
+                {
+                  "id": "gi|984124422|ref|XP_015353994.1|",
+                  "accession": "XP_015353994",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X1 [Marmota marmota marmota]",
+                  "taxid": 9994,
+                  "sciname": "Marmota marmota marmota"
+                }
+              ],
+              "len": 458,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 162.398,
+                  "score": 432,
+                  "evalue": 2.25926e-47,
+                  "identity": 93,
+                  "positive": 96,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 359,
+                  "hit_to": 458,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCHKEQTVSVSRTFQINTFELRVQPFNVMEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMC+KEQTVSVS  FQINTF+LRVQPFNV +GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 67,
+              "description": [
+                {
+                  "id": "gi|852754263|ref|XP_012873589.1|",
+                  "accession": "XP_012873589",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 [Dipodomys ordii]",
+                  "taxid": 10020,
+                  "sciname": "Dipodomys ordii"
+                }
+              ],
+              "len": 410,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 162.398,
+                  "score": 432,
+                  "evalue": 2.25926e-47,
+                  "identity": 92,
+                  "positive": 95,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 311,
+                  "hit_to": 410,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSVGNNNLSYWDAPLGSSYMCNKEQIVSVSGKFQINTFNLRVQPFNVKEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FS+ NNNLSYWDAPLGSSYMCNKEQ VSVSG FQINTF+LRVQPFNV +GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 68,
+              "description": [
+                {
+                  "id": "gi|532067121|ref|XP_005319410.1|",
+                  "accession": "XP_005319410",
+                  "title": "lysosome-associated membrane glycoprotein 2 isoform X2 [Ictidomys tridecemlineatus]",
+                  "taxid": 43179,
+                  "sciname": "Ictidomys tridecemlineatus"
+                }
+              ],
+              "len": 458,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 162.398,
+                  "score": 432,
+                  "evalue": 2.25926e-47,
+                  "identity": 93,
+                  "positive": 96,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 359,
+                  "hit_to": 458,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCHKEQTVSVSRTFQINTFELRVQPFNVMEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMC+KEQTVSVS  FQINTF+LRVQPFNV +GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 69,
+              "description": [
+                {
+                  "id": "gi|674051755|ref|XP_008832153.1|",
+                  "accession": "XP_008832153",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X3 [Nannospalax galili]",
+                  "taxid": 1026970,
+                  "sciname": "Nannospalax galili"
+                }
+              ],
+              "len": 409,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 162.012,
+                  "score": 431,
+                  "evalue": 2.95276e-47,
+                  "identity": 91,
+                  "positive": 94,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 310,
+                  "hit_to": 409,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSVANNNLSSWDAPLGSSYMCKKEQVVSVSGTFQINTFDLRVQPFNVTEGKYSTAQDCSADDDNFLVPIAVGAALAGLLILVLLAYFIGLKRHHTGYEQF",
+                  "midline": "FS+ANNNLS WDAPLGSSYMC KEQ VSVSG FQINTFDLRVQPFNVT+GKYSTAQDCSADDDNFLVPIAVGAALAG+LILVLLAYFIGLK HH GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 70,
+              "description": [
+                {
+                  "id": "gi|584046124|ref|XP_006767874.1|",
+                  "accession": "XP_006767874",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Myotis davidii]",
+                  "taxid": 225400,
+                  "sciname": "Myotis davidii"
+                }
+              ],
+              "len": 411,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 161.239,
+                  "score": 429,
+                  "evalue": 5.04364e-47,
+                  "identity": 93,
+                  "positive": 95,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 312,
+                  "hit_to": 411,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFYLRVQPFNVIEGKYSTAQDCSADEDNFLVPIAVGAALAGVLILVLLIYLIGLKHHHIGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTF LRVQPFNV +GKYSTAQDCSAD+DNFLVPIAVGAALAGVLILVLL Y IGLKHHH GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 71,
+              "description": [
+                {
+                  "id": "gi|837810999|ref|XP_012783190.1|",
+                  "accession": "XP_012783190",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X6 [Ochotona princeps]",
+                  "taxid": 9978,
+                  "sciname": "Ochotona princeps"
+                }
+              ],
+              "len": 389,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 161.239,
+                  "score": 429,
+                  "evalue": 5.04364e-47,
+                  "identity": 90,
+                  "positive": 96,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 290,
+                  "hit_to": 389,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSISNTNLSYWDAPLGSSYMCNKEQTISVSEAFQINTFDLRVQPFSVIEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFVGLKRHHSGYEQF",
+                  "midline": "FSI+N NLSYWDAPLGSSYMCNKEQT+SVS AFQINTFDLRVQPF+V +GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYF+GLK HH+GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 72,
+              "description": [
+                {
+                  "id": "gi|837810990|ref|XP_012783187.1|",
+                  "accession": "XP_012783187",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X3 [Ochotona princeps]",
+                  "taxid": 9978,
+                  "sciname": "Ochotona princeps"
+                }
+              ],
+              "len": 409,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 161.239,
+                  "score": 429,
+                  "evalue": 5.04364e-47,
+                  "identity": 90,
+                  "positive": 96,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 310,
+                  "hit_to": 409,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSISNTNLSYWDAPLGSSYMCNKEQTISVSEAFQINTFDLRVQPFSVIEGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFVGLKRHHSGYEQF",
+                  "midline": "FSI+N NLSYWDAPLGSSYMCNKEQT+SVS AFQINTFDLRVQPF+V +GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYF+GLK HH+GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 73,
+              "description": [
+                {
+                  "id": "gi|558099061|ref|XP_006082215.1|",
+                  "accession": "XP_006082215",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Myotis lucifugus]",
+                  "taxid": 59463,
+                  "sciname": "Myotis lucifugus"
+                }
+              ],
+              "len": 411,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 161.239,
+                  "score": 429,
+                  "evalue": 5.04364e-47,
+                  "identity": 93,
+                  "positive": 95,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 312,
+                  "hit_to": 411,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFYLRVQPFNVIEGKYSTAQDCSADEDNFLVPIAVGAALAGVLILVLLIYLIGLKHHHTGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTF LRVQPFNV +GKYSTAQDCSAD+DNFLVPIAVGAALAGVLILVLL Y IGLKHHH GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 74,
+              "description": [
+                {
+                  "id": "gi|554586645|ref|XP_005884737.1|",
+                  "accession": "XP_005884737",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Myotis brandtii]",
+                  "taxid": 109478,
+                  "sciname": "Myotis brandtii"
+                }
+              ],
+              "len": 411,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 161.239,
+                  "score": 429,
+                  "evalue": 5.04364e-47,
+                  "identity": 93,
+                  "positive": 95,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 312,
+                  "hit_to": 411,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFYLRVQPFNVIEGKYSTAQDCSADEDNFLVPIAVGAALAGVLILVLLIYLIGLKHHHTGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTF LRVQPFNV +GKYSTAQDCSAD+DNFLVPIAVGAALAGVLILVLL Y IGLKHHH GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 75,
+              "description": [
+                {
+                  "id": "gi|344286138|ref|XP_003414816.1|",
+                  "accession": "XP_003414816",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Loxodonta africana]",
+                  "taxid": 9785,
+                  "sciname": "Loxodonta africana"
+                }
+              ],
+              "len": 413,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 160.853,
+                  "score": 428,
+                  "evalue": 6.59172e-47,
+                  "identity": 91,
+                  "positive": 93,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 314,
+                  "hit_to": 413,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSFVNNNLSYWDAPLGSSYMCNKEQTVAVSGTFQINTFDLRVQPFNVMEGKYSTAQDCSADDDNFFVPIAVGAALAAVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FS  NNNLSYWDAPLGSSYMCNKEQTV+VSG FQINTFDLRVQPFNV +GKYSTAQDCSADDDNF VPIAVGAALA VLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 76,
+              "description": [
+                {
+                  "id": "gi|307110|gb|AAA60383.1|",
+                  "accession": "AAA60383",
+                  "title": "lysosomal membrane glycoprotein-2 [Homo sapiens]",
+                  "taxid": 9606,
+                  "sciname": "Homo sapiens"
+                }
+              ],
+              "len": 408,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 159.694,
+                  "score": 425,
+                  "evalue": 1.47146e-46,
+                  "identity": 96,
+                  "positive": 96,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 311,
+                  "hit_to": 408,
+                  "align_len": 100,
+                  "gaps": 2,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWMPP--SSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "midline": "FSIANNNLSYW  P  SSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 77,
+              "description": [
+                {
+                  "id": "gi|823396064|ref|XP_012411940.1|",
+                  "accession": "XP_012411940",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X1 [Trichechus manatus latirostris]",
+                  "taxid": 127582,
+                  "sciname": "Trichechus manatus latirostris"
+                }
+              ],
+              "len": 364,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 159.694,
+                  "score": 425,
+                  "evalue": 1.47146e-46,
+                  "identity": 91,
+                  "positive": 94,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 265,
+                  "hit_to": 364,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSFVNSNLSYWDAPLGSSYMCNKEQTVSVSGTFQINTFNLRVQPFNVMEGKYSTAQDCSADDDNFLVPIAVGAALAAVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FS  N+NLSYWDAPLGSSYMCNKEQTVSVSG FQINTF+LRVQPFNV +GKYSTAQDCSADDDNFLVPIAVGAALA VLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 78,
+              "description": [
+                {
+                  "id": "gi|641728388|ref|XP_008154338.1|",
+                  "accession": "XP_008154338",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X1 [Eptesicus fuscus]",
+                  "taxid": 29078,
+                  "sciname": "Eptesicus fuscus"
+                }
+              ],
+              "len": 411,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 158.536,
+                  "score": 422,
+                  "evalue": 3.28456e-46,
+                  "identity": 91,
+                  "positive": 94,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 312,
+                  "hit_to": 411,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFYLRVQPFNVIEGKYSTAQDCSTDEDNFLVPIAVGAALAGVLILMLLIYLIGLKHHHTGYEQF",
+                  "midline": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTF LRVQPFNV +GKYSTAQDCS D+DNFLVPIAVGAALAGVLIL+LL Y IGLKHHH GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 79,
+              "description": [
+                {
+                  "id": "gi|830042097|ref|XP_012582614.1|",
+                  "accession": "XP_012582614",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 [Condylura cristata]",
+                  "taxid": 143302,
+                  "sciname": "Condylura cristata"
+                }
+              ],
+              "len": 411,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 157.764,
+                  "score": 420,
+                  "evalue": 5.60985e-46,
+                  "identity": 90,
+                  "positive": 94,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 312,
+                  "hit_to": 411,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FNMENNNLSFWDAPLGSSYMCNKEQTVPVSGTFQINTFDLRVQPFNVMEGKYSTAQDCSADDDNFLVPIAVGAALAVVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "F++ NNNLS+WDAPLGSSYMCNKEQTV VSG FQINTFDLRVQPFNV +GKYSTAQDCSADDDNFLVPIAVGAALA VLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 80,
+              "description": [
+                {
+                  "id": "gi|913503757|ref|XP_005358495.2|",
+                  "accession": "XP_005358495",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X3 [Microtus ochrogaster]",
+                  "taxid": 79684,
+                  "sciname": "Microtus ochrogaster"
+                }
+              ],
+              "len": 412,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 157.378,
+                  "score": 419,
+                  "evalue": 7.33136e-46,
+                  "identity": 87,
+                  "positive": 94,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 313,
+                  "hit_to": 412,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSVANNNLSFWDAPLGSSYMCNKEQVISVSTTFQINTFNLKVQPFNVTKGKYSTAQDCSADEDNFLVPIVVGAALAGVLILVLLAYFIGLKRHHTGYEQF",
+                  "midline": "FS+ANNNLS+WDAPLGSSYMCNKEQ +SVS  FQINTF+L+VQPFNVT+GKYSTAQDCSAD+DNFLVPI VGAALAGVLILVLLAYFIGLK HH GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 81,
+              "description": [
+                {
+                  "id": "gi|589937743|ref|XP_006981628.1|",
+                  "accession": "XP_006981628",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Peromyscus maniculatus bairdii]",
+                  "taxid": 230844,
+                  "sciname": "Peromyscus maniculatus bairdii"
+                }
+              ],
+              "len": 414,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 156.605,
+                  "score": 417,
+                  "evalue": 1.25211e-45,
+                  "identity": 87,
+                  "positive": 94,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 315,
+                  "hit_to": 414,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSVSNNNLSFWDAPLGSSYMCNKEQVVSVSRTFQINTFNLKVQPFNVTEGKYSTAQDCSADEDNFLVPIAVGAALAGVLTLVLLAYFIGLKRHHTGYEQF",
+                  "midline": "FS++NNNLS+WDAPLGSSYMCNKEQ VSVS  FQINTF+L+VQPFNVT+GKYSTAQDCSAD+DNFLVPIAVGAALAGVL LVLLAYFIGLK HH GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 82,
+              "description": [
+                {
+                  "id": "gi|537120880|gb|ERE64072.1|",
+                  "accession": "ERE64072",
+                  "title": "lysosome-associated membrane glycoprotein 2 precursor [Cricetulus griseus]",
+                  "taxid": 10029,
+                  "sciname": "Cricetulus griseus"
+                }
+              ],
+              "len": 417,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 156.219,
+                  "score": 416,
+                  "evalue": 1.63633e-45,
+                  "identity": 87,
+                  "positive": 94,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 318,
+                  "hit_to": 417,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSVANNNLSFWDAPLGSSYMCNKEQVVSVSRTFQINTFNLKVQPFNVTKGKYATAQDCSADEDNFLVPIAVGAALAGVLALVLLAYFIGLKRHHTGYEQF",
+                  "midline": "FS+ANNNLS+WDAPLGSSYMCNKEQ VSVS  FQINTF+L+VQPFNVT+GKY+TAQDCSAD+DNFLVPIAVGAALAGVL LVLLAYFIGLK HH GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 83,
+              "description": [
+                {
+                  "id": "gi|350537657|ref|NP_001233678.1|",
+                  "accession": "NP_001233678",
+                  "title": "lysosome-associated membrane glycoprotein 2 precursor [Cricetulus griseus]",
+                  "taxid": 10029,
+                  "sciname": "Cricetulus griseus"
+                },
+                {
+                  "id": "gi|1346462|sp|P49130.1|LAMP2_CRIGR",
+                  "accession": "P49130",
+                  "title": "RecName: Full=Lysosome-associated membrane glycoprotein 2; Short=LAMP-2; Short=Lysosome-associated membrane protein 2; AltName: Full=CD107 antigen-like family member B; AltName: Full=Lysosomal membrane glycoprotein B; Short=LGP-B; AltName: CD_antigen=CD107b; Flags: Precursor",
+                  "taxid": 10029,
+                  "sciname": "Cricetulus griseus"
+                },
+                {
+                  "id": "gi|304519|gb|AAC37683.1|",
+                  "accession": "AAC37683",
+                  "title": "lysosomal membrane glycoprotein B [Cricetulus griseus]",
+                  "taxid": 10029,
+                  "sciname": "Cricetulus griseus"
+                }
+              ],
+              "len": 410,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 156.219,
+                  "score": 416,
+                  "evalue": 1.63633e-45,
+                  "identity": 87,
+                  "positive": 94,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 311,
+                  "hit_to": 410,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSVANNNLSFWDAPLGSSYMCNKEQVVSVSRTFQINTFNLKVQPFNVTKGKYATAQDCSADEDNFLVPIAVGAALAGVLALVLLAYFIGLKRHHTGYEQF",
+                  "midline": "FS+ANNNLS+WDAPLGSSYMCNKEQ VSVS  FQINTF+L+VQPFNVT+GKY+TAQDCSAD+DNFLVPIAVGAALAGVL LVLLAYFIGLK HH GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 84,
+              "description": [
+                {
+                  "id": "gi|533202351|ref|XP_005413718.1|",
+                  "accession": "XP_005413718",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X1 [Chinchilla lanigera]",
+                  "taxid": 34839,
+                  "sciname": "Chinchilla lanigera"
+                }
+              ],
+              "len": 491,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 155.061,
+                  "score": 413,
+                  "evalue": 3.65202e-45,
+                  "identity": 91,
+                  "positive": 92,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 392,
+                  "hit_to": 491,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSTANKNLSYWDAPLGSSYMCNKEQTVSVSENFQINTFRLRVQPFNVKEGVYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FS AN NLSYWDAPLGSSYMCNKEQTVSVS  FQINTF LRVQPFNV +G YSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 85,
+              "description": [
+                {
+                  "id": "gi|1196066586|ref|XP_012978254.2|",
+                  "accession": "XP_012978254",
+                  "title": "lysosome-associated membrane glycoprotein 2 isoform X2 [Mesocricetus auratus]",
+                  "taxid": 10036,
+                  "sciname": "Mesocricetus auratus"
+                }
+              ],
+              "len": 459,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 154.675,
+                  "score": 412,
+                  "evalue": 4.77253e-45,
+                  "identity": 86,
+                  "positive": 93,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 360,
+                  "hit_to": 459,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSVANNNLSFWDAPLGSSYMCNKEQVVTVSRTFQINTFNLKVQPFNVTKGKYSTAQDCSADEDNFLVPIAVGAALAGVLALVLLVYFIGLKRHHTGYEQF",
+                  "midline": "FS+ANNNLS+WDAPLGSSYMCNKEQ V+VS  FQINTF+L+VQPFNVT+GKYSTAQDCSAD+DNFLVPIAVGAALAGVL LVLL YFIGLK HH GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 86,
+              "description": [
+                {
+                  "id": "gi|1195740538|ref|XP_021008435.1|",
+                  "accession": "XP_021008435",
+                  "title": "lysosome-associated membrane glycoprotein 2 isoform X1 [Mus caroli]",
+                  "taxid": 10089,
+                  "sciname": "Mus caroli"
+                }
+              ],
+              "len": 411,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 154.675,
+                  "score": 412,
+                  "evalue": 4.77253e-45,
+                  "identity": 86,
+                  "positive": 95,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 312,
+                  "hit_to": 411,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FNISNNNLSFWDAPLGSSYMCNKEQVLSVSRAFQINTFNLKVQPFNVTKGEYSTAQDCSADEDNFLVPIAVGAALGGVLILVLLAYFIGLKRHHTGYEQF",
+                  "midline": "F+I+NNNLS+WDAPLGSSYMCNKEQ +SVS AFQINTF+L+VQPFNVT+G+YSTAQDCSAD+DNFLVPIAVGAAL GVLILVLLAYFIGLK HH GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 87,
+              "description": [
+                {
+                  "id": "gi|1016677666|ref|XP_016046889.1|",
+                  "accession": "XP_016046889",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Erinaceus europaeus]",
+                  "taxid": 9365,
+                  "sciname": "Erinaceus europaeus"
+                }
+              ],
+              "len": 410,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 154.675,
+                  "score": 412,
+                  "evalue": 4.77253e-45,
+                  "identity": 89,
+                  "positive": 90,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 311,
+                  "hit_to": 410,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSTANNNLSYWDAPIGSSYMCNKEQTVQVSETFHINTFSLRVQPFNVAGGKYSTAQDCSADDDNFLVPIVVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FS ANNNLSYWDAP+GSSYMCNKEQTV VS  F INTF LRVQPFNV  GKYSTAQDCSADDDNFLVPI VGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 88,
+              "description": [
+                {
+                  "id": "gi|1195561774|ref|XP_021043577.1|",
+                  "accession": "XP_021043577",
+                  "title": "lysosome-associated membrane glycoprotein 2 isoform X3 [Mus pahari]",
+                  "taxid": 10093,
+                  "sciname": "Mus pahari"
+                }
+              ],
+              "len": 411,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 153.131,
+                  "score": 408,
+                  "evalue": 1.39183e-44,
+                  "identity": 85,
+                  "positive": 94,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 312,
+                  "hit_to": 411,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FNISNNNLSFWDAPLGSSYMCNKEQVLSVSRTFQINTFNLKVQPFNVTKGEYSTAQDCSADEDNFLVPIAVGAALGGVLILVLLAYFIGLKRHHTGYEQF",
+                  "midline": "F+I+NNNLS+WDAPLGSSYMCNKEQ +SVS  FQINTF+L+VQPFNVT+G+YSTAQDCSAD+DNFLVPIAVGAAL GVLILVLLAYFIGLK HH GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 89,
+              "description": [
+                {
+                  "id": "gi|1148303094|sp|P17046.3|LAMP2_RAT",
+                  "accession": "P17046",
+                  "title": "RecName: Full=Lysosome-associated membrane glycoprotein 2; Short=LAMP-2; Short=Lysosome-associated membrane protein 2; AltName: Full=CD107 antigen-like family member B; AltName: Full=LGP-110; AltName: Full=LGP-96; AltName: Full=Lysosomal membrane glycoprotein type B; Short=LGP-B; AltName: CD_antigen=CD107b; Flags: Precursor",
+                  "taxid": 10116,
+                  "sciname": "Rattus norvegicus"
+                }
+              ],
+              "len": 411,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 153.131,
+                  "score": 408,
+                  "evalue": 1.39183e-44,
+                  "identity": 85,
+                  "positive": 93,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 312,
+                  "hit_to": 411,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FHVSNNNLSFWDAPLGSSYMCNKEQVVSVSRTFQINTFNLKVQPFNVTKGEYSTAQDCSADEDNFLVPIAVGAALGGVLILVLLAYFIGLKRHHTGYEQF",
+                  "midline": "F ++NNNLS+WDAPLGSSYMCNKEQ VSVS  FQINTF+L+VQPFNVT+G+YSTAQDCSAD+DNFLVPIAVGAAL GVLILVLLAYFIGLK HH GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 90,
+              "description": [
+                {
+                  "id": "gi|149060048|gb|EDM10864.1|",
+                  "accession": "EDM10864",
+                  "title": "lysosomal membrane glycoprotein 2, isoform CRA_b [Rattus norvegicus]",
+                  "taxid": 10116,
+                  "sciname": "Rattus norvegicus"
+                }
+              ],
+              "len": 367,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 153.131,
+                  "score": 408,
+                  "evalue": 1.39183e-44,
+                  "identity": 85,
+                  "positive": 93,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 268,
+                  "hit_to": 367,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FHVSNNNLSFWDAPLGSSYMCNKEQVVSVSRTFQINTFNLKVQPFNVTKGEYSTAQDCSADEDNFLVPIAVGAALGGVLILVLLAYFIGLKRHHTGYEQF",
+                  "midline": "F ++NNNLS+WDAPLGSSYMCNKEQ VSVS  FQINTF+L+VQPFNVT+G+YSTAQDCSAD+DNFLVPIAVGAAL GVLILVLLAYFIGLK HH GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 91,
+              "description": [
+                {
+                  "id": "gi|149060049|gb|EDM10865.1|",
+                  "accession": "EDM10865",
+                  "title": "lysosomal membrane glycoprotein 2, isoform CRA_c [Rattus norvegicus]",
+                  "taxid": 10116,
+                  "sciname": "Rattus norvegicus"
+                }
+              ],
+              "len": 188,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 153.131,
+                  "score": 408,
+                  "evalue": 1.39183e-44,
+                  "identity": 85,
+                  "positive": 93,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 89,
+                  "hit_to": 188,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FHVSNNNLSFWDAPLGSSYMCNKEQVVSVSRTFQINTFNLKVQPFNVTKGEYSTAQDCSADEDNFLVPIAVGAALGGVLILVLLAYFIGLKRHHTGYEQF",
+                  "midline": "F ++NNNLS+WDAPLGSSYMCNKEQ VSVS  FQINTF+L+VQPFNVT+G+YSTAQDCSAD+DNFLVPIAVGAAL GVLILVLLAYFIGLK HH GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 92,
+              "description": [
+                {
+                  "id": "gi|205169|gb|AAA41526.1|",
+                  "accession": "AAA41526",
+                  "title": "lysosomal membrane glycoprotein-type B precursor, partial [Rattus norvegicus]",
+                  "taxid": 10116,
+                  "sciname": "Rattus norvegicus"
+                }
+              ],
+              "len": 393,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 153.131,
+                  "score": 408,
+                  "evalue": 1.39183e-44,
+                  "identity": 85,
+                  "positive": 93,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 294,
+                  "hit_to": 393,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FHVSNNNLSFWDAPLGSSYMCNKEQVVSVSRTFQINTFNLKVQPFNVTKGEYSTAQDCSADEDNFLVPIAVGAALGGVLILVLLAYFIGLKRHHTGYEQF",
+                  "midline": "F ++NNNLS+WDAPLGSSYMCNKEQ VSVS  FQINTF+L+VQPFNVT+G+YSTAQDCSAD+DNFLVPIAVGAAL GVLILVLLAYFIGLK HH GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 93,
+              "description": [
+                {
+                  "id": "gi|820997993|ref|XP_012368533.1|",
+                  "accession": "XP_012368533",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 [Octodon degus]",
+                  "taxid": 10160,
+                  "sciname": "Octodon degus"
+                }
+              ],
+              "len": 420,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 153.131,
+                  "score": 408,
+                  "evalue": 1.39183e-44,
+                  "identity": 88,
+                  "positive": 92,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 321,
+                  "hit_to": 420,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSFSNENLSYWDAPLGSSYMCNKEQTVSVSGKFQINTFGLRVQPFKVKEGVFSTAQDCTADDDNFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FS +N NLSYWDAPLGSSYMCNKEQTVSVSG FQINTF LRVQPF V +G +STAQDC+ADDDNFLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 94,
+              "description": [
+                {
+                  "id": "gi|40254785|ref|NP_058764.2|",
+                  "accession": "NP_058764",
+                  "title": "lysosome-associated membrane glycoprotein 2 precursor [Rattus norvegicus]",
+                  "taxid": 10116,
+                  "sciname": "Rattus norvegicus"
+                },
+                {
+                  "id": "gi|38303859|gb|AAH61990.1|",
+                  "accession": "AAH61990",
+                  "title": "Lysosomal-associated membrane protein 2 [Rattus norvegicus]",
+                  "taxid": 10116,
+                  "sciname": "Rattus norvegicus"
+                }
+              ],
+              "len": 411,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 153.131,
+                  "score": 408,
+                  "evalue": 1.39183e-44,
+                  "identity": 85,
+                  "positive": 93,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 312,
+                  "hit_to": 411,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FHVSNNNLSFWDAPLGSSYMCNKEQVVSVSRTFQINTFNLKVQPFNVTKGEYSTAQDCSADEDNFLVPIAVGAALGGVLILVLLAYFIGLKRHHTGYEQF",
+                  "midline": "F ++NNNLS+WDAPLGSSYMCNKEQ VSVS  FQINTF+L+VQPFNVT+G+YSTAQDCSAD+DNFLVPIAVGAAL GVLILVLLAYFIGLK HH GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 95,
+              "description": [
+                {
+                  "id": "gi|220806|dbj|BAA14236.1|",
+                  "accession": "BAA14236",
+                  "title": "LGP 96 precursor [Rattus sp.]",
+                  "taxid": 10118,
+                  "sciname": "Rattus sp."
+                }
+              ],
+              "len": 411,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 153.131,
+                  "score": 408,
+                  "evalue": 1.39183e-44,
+                  "identity": 85,
+                  "positive": 93,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 312,
+                  "hit_to": 411,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FHVSNNNLSFWDAPLGSSYMCNKEQVVSVSRTFQINTFNLKVQPFNVTKGEYSTAQDCSADEDNFLVPIAVGAALGGVLILVLLAYFIGLKRHHTGYEQF",
+                  "midline": "F ++NNNLS+WDAPLGSSYMCNKEQ VSVS  FQINTF+L+VQPFNVT+G+YSTAQDCSAD+DNFLVPIAVGAAL GVLILVLLAYFIGLK HH GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 96,
+              "description": [
+                {
+                  "id": "gi|514453030|ref|XP_003465647.2|",
+                  "accession": "XP_003465647",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X3 [Cavia porcellus]",
+                  "taxid": 10141,
+                  "sciname": "Cavia porcellus"
+                }
+              ],
+              "len": 408,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 152.745,
+                  "score": 407,
+                  "evalue": 1.81883e-44,
+                  "identity": 88,
+                  "positive": 93,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 309,
+                  "hit_to": 408,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSTANNSLSYWDAPLGSSYMCNKEDTLSVSEAFQINTFGLRIQPFNVKEGVYSTAQDCSADDDHFLVPIAVGAALAGVLILVLLAYFIGLKRHHAGYEQF",
+                  "midline": "FS ANN+LSYWDAPLGSSYMCNKE T+SVS AFQINTF LR+QPFNV +G YSTAQDCSADDD+FLVPIAVGAALAGVLILVLLAYFIGLK HHAGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 97,
+              "description": [
+                {
+                  "id": "gi|148697070|gb|EDL29017.1|",
+                  "accession": "EDL29017",
+                  "title": "lysosomal membrane glycoprotein 2, isoform CRA_c [Mus musculus]",
+                  "taxid": 10090,
+                  "sciname": "Mus musculus"
+                }
+              ],
+              "len": 188,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 152.359,
+                  "score": 406,
+                  "evalue": 2.3768e-44,
+                  "identity": 85,
+                  "positive": 94,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 89,
+                  "hit_to": 188,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FNISNKNLSFWDAPLGSSYMCNKEQVLSVSRAFQINTFNLKVQPFNVTKGQYSTAQDCSADEDNFLVPIAVGAALGGVLILVLLAYFIGLKRHHTGYEQF",
+                  "midline": "F+I+N NLS+WDAPLGSSYMCNKEQ +SVS AFQINTF+L+VQPFNVT+G+YSTAQDCSAD+DNFLVPIAVGAAL GVLILVLLAYFIGLK HH GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 98,
+              "description": [
+                {
+                  "id": "gi|63054837|ref|NP_001017959.1|",
+                  "accession": "NP_001017959",
+                  "title": "lysosome-associated membrane glycoprotein 2 isoform 1 precursor [Mus musculus]",
+                  "taxid": 10090,
+                  "sciname": "Mus musculus"
+                },
+                {
+                  "id": "gi|334302827|sp|P17047.2|LAMP2_MOUSE",
+                  "accession": "P17047",
+                  "title": "RecName: Full=Lysosome-associated membrane glycoprotein 2; Short=LAMP-2; Short=Lysosome-associated membrane protein 2; AltName: Full=CD107 antigen-like family member B; AltName: Full=Lysosomal membrane glycoprotein type B; Short=LGP-B; AltName: CD_antigen=CD107b; Flags: Precursor",
+                  "taxid": 10090,
+                  "sciname": "Mus musculus"
+                },
+                {
+                  "id": "gi|148697071|gb|EDL29018.1|",
+                  "accession": "EDL29018",
+                  "title": "lysosomal membrane glycoprotein 2, isoform CRA_d [Mus musculus]",
+                  "taxid": 10090,
+                  "sciname": "Mus musculus"
+                }
+              ],
+              "len": 415,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 152.359,
+                  "score": 406,
+                  "evalue": 2.3768e-44,
+                  "identity": 85,
+                  "positive": 94,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 316,
+                  "hit_to": 415,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FNISNKNLSFWDAPLGSSYMCNKEQVLSVSRAFQINTFNLKVQPFNVTKGQYSTAQDCSADEDNFLVPIAVGAALGGVLILVLLAYFIGLKRHHTGYEQF",
+                  "midline": "F+I+N NLS+WDAPLGSSYMCNKEQ +SVS AFQINTF+L+VQPFNVT+G+YSTAQDCSAD+DNFLVPIAVGAAL GVLILVLLAYFIGLK HH GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 99,
+              "description": [
+                {
+                  "id": "gi|198800|gb|AAA39429.1|",
+                  "accession": "AAA39429",
+                  "title": "lysosomal membrane glycoprotein-type B, partial [Mus musculus]",
+                  "taxid": 10090,
+                  "sciname": "Mus musculus"
+                }
+              ],
+              "len": 230,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 152.359,
+                  "score": 406,
+                  "evalue": 2.3768e-44,
+                  "identity": 85,
+                  "positive": 94,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 131,
+                  "hit_to": 230,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FNISNKNLSFWDAPLGSSYMCNKEQVLSVSRAFQINTFNLKVQPFNVTKGQYSTAQDCSADEDNFLVPIAVGAALGGVLILVLLAYFIGLKRHHTGYEQF",
+                  "midline": "F+I+N NLS+WDAPLGSSYMCNKEQ +SVS AFQINTF+L+VQPFNVT+G+YSTAQDCSAD+DNFLVPIAVGAAL GVLILVLLAYFIGLK HH GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 100,
+              "description": [
+                {
+                  "id": "gi|74198316|dbj|BAE35325.1|",
+                  "accession": "BAE35325",
+                  "title": "unnamed protein product [Mus musculus]",
+                  "taxid": 10090,
+                  "sciname": "Mus musculus"
+                }
+              ],
+              "len": 415,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 152.359,
+                  "score": 406,
+                  "evalue": 2.3768e-44,
+                  "identity": 85,
+                  "positive": 94,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 316,
+                  "hit_to": 415,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FNISNKNLSFWDAPLGSSYMCNKEQVLSVSRAFQINTFNLKVQPFNVTKGQYSTAQDCSADEDNFLVPIAVGAALGGVLILVLLAYFIGLKRHHTGYEQF",
+                  "midline": "F+I+N NLS+WDAPLGSSYMCNKEQ +SVS AFQINTF+L+VQPFNVT+G+YSTAQDCSAD+DNFLVPIAVGAAL GVLILVLLAYFIGLK HH GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 101,
+              "description": [
+                {
+                  "id": "gi|74192885|dbj|BAE34951.1|",
+                  "accession": "BAE34951",
+                  "title": "unnamed protein product [Mus musculus]",
+                  "taxid": 10090,
+                  "sciname": "Mus musculus"
+                }
+              ],
+              "len": 415,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 152.359,
+                  "score": 406,
+                  "evalue": 2.3768e-44,
+                  "identity": 85,
+                  "positive": 94,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 316,
+                  "hit_to": 415,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FNISNKNLSFWDAPLGSSYMCNKEQVLSVSRAFQINTFNLKVQPFNVTKGQYSTAQDCSADEDNFLVPIAVGAALGGVLILVLLAYFIGLKRHHTGYEQF",
+                  "midline": "F+I+N NLS+WDAPLGSSYMCNKEQ +SVS AFQINTF+L+VQPFNVT+G+YSTAQDCSAD+DNFLVPIAVGAAL GVLILVLLAYFIGLK HH GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 102,
+              "description": [
+                {
+                  "id": "gi|74144843|dbj|BAE27393.1|",
+                  "accession": "BAE27393",
+                  "title": "unnamed protein product [Mus musculus]",
+                  "taxid": 10090,
+                  "sciname": "Mus musculus"
+                }
+              ],
+              "len": 415,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 152.359,
+                  "score": 406,
+                  "evalue": 2.3768e-44,
+                  "identity": 85,
+                  "positive": 94,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 316,
+                  "hit_to": 415,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FNISNKNLSFWDAPLGSSYMCNKEQVLSVSRAFQINTFNLKVQPFNVTKGQYSTAQDCSADEDNFLVPIAVGAALGGVLILVLLAYFIGLKRHHTGYEQF",
+                  "midline": "F+I+N NLS+WDAPLGSSYMCNKEQ +SVS AFQINTF+L+VQPFNVT+G+YSTAQDCSAD+DNFLVPIAVGAAL GVLILVLLAYFIGLK HH GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 103,
+              "description": [
+                {
+                  "id": "gi|293693|gb|AAA39412.1|",
+                  "accession": "AAA39412",
+                  "title": "lysosomal membrane glycoprotein A [Mus musculus]",
+                  "taxid": 10090,
+                  "sciname": "Mus musculus"
+                }
+              ],
+              "len": 415,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 152.359,
+                  "score": 406,
+                  "evalue": 2.3768e-44,
+                  "identity": 85,
+                  "positive": 94,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 316,
+                  "hit_to": 415,
+                  "align_len": 100,
+                  "gaps": 0,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FNISNKNLSFWDAPLGSSYMCNKEQVLSVSRAFQINTFNLKVQPFNVTKGQYSTAQDCSADEDNFLVPIAVGAALGGVLILVLLAYFIGLKRHHTGYEQF",
+                  "midline": "F+I+N NLS+WDAPLGSSYMCNKEQ +SVS AFQINTF+L+VQPFNVT+G+YSTAQDCSAD+DNFLVPIAVGAAL GVLILVLLAYFIGLK HH GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 104,
+              "description": [
+                {
+                  "id": "gi|847028943|ref|XP_012805372.1|",
+                  "accession": "XP_012805372",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2-like, partial [Jaculus jaculus]",
+                  "taxid": 51337,
+                  "sciname": "Jaculus jaculus"
+                }
+              ],
+              "len": 408,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 151.973,
+                  "score": 405,
+                  "evalue": 3.10592e-44,
+                  "identity": 89,
+                  "positive": 94,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 309,
+                  "hit_to": 408,
+                  "align_len": 101,
+                  "gaps": 2,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGL-KHHHAGYEQF",
+                  "hseq": "FSVANNNLSSWDAPLGSSYMCNKEQVVAVSGTFRINTFNLRNQPFNVTGGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLNRHH-AGYEQF",
+                  "midline": "FS+ANNNLS WDAPLGSSYMCNKEQ V+VSG F+INTF+LR QPFNVT GKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGL +HH AGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 105,
+              "description": [
+                {
+                  "id": "gi|345326172|ref|XP_001510101.2|",
+                  "accession": "XP_001510101",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 [Ornithorhynchus anatinus]",
+                  "taxid": 9258,
+                  "sciname": "Ornithorhynchus anatinus"
+                }
+              ],
+              "len": 570,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 141.94,
+                  "score": 379,
+                  "evalue": 3.2538e-41,
+                  "identity": 74,
+                  "positive": 89,
+                  "query_from": 2,
+                  "query_to": 100,
+                  "hit_from": 472,
+                  "hit_to": 570,
+                  "align_len": 99,
+                  "gaps": 0,
+                  "qseq": "SIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "NVANNNLSYWDAPLGSSYMCNKEQTLALADSLQINTFNLRVQPFSVVAGKYSTAEDCSADDDNFIVPIAVGAALGGLVILVLMAYFVGRKRRATGYEQF",
+                  "midline": "++ANNNLSYWDAPLGSSYMCNKEQT++++ + QINTF+LRVQPF+V  GKYSTA+DCSADDDNF+VPIAVGAAL G++ILVL+AYF+G K    GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 106,
+              "description": [
+                {
+                  "id": "gi|951036789|ref|XP_014462664.1|",
+                  "accession": "XP_014462664",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X4 [Alligator mississippiensis]",
+                  "taxid": 8496,
+                  "sciname": "Alligator mississippiensis"
+                }
+              ],
+              "len": 431,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 119.199,
+                  "score": 320,
+                  "evalue": 2.28028e-34,
+                  "identity": 68,
+                  "positive": 80,
+                  "query_from": 5,
+                  "query_to": 100,
+                  "hit_from": 335,
+                  "hit_to": 431,
+                  "align_len": 97,
+                  "gaps": 1,
+                  "qseq": "NNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHH-HAGYEQF",
+                  "hseq": "NHNLSKWDTSLGSSYMCQKEQTVEVNEDFQIHTFDVRVQPFLVKENKYSTAEDCSLDVDNFIVPIAVGAALGGLVILVLMAYFVGHKKRGNAGYEQF",
+                  "midline": "N+NLS WD  LGSSYMC KEQTV V+  FQI+TFD+RVQPF V + KYSTA+DCS D DNF+VPIAVGAAL G++ILVL+AYF+G K   +AGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 107,
+              "description": [
+                {
+                  "id": "gi|1121857453|ref|XP_019395737.1|",
+                  "accession": "XP_019395737",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X1 [Crocodylus porosus]",
+                  "taxid": 8502,
+                  "sciname": "Crocodylus porosus"
+                }
+              ],
+              "len": 428,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 116.504,
+                  "score": 313,
+                  "evalue": 1.47676e-33,
+                  "identity": 69,
+                  "positive": 80,
+                  "query_from": 5,
+                  "query_to": 100,
+                  "hit_from": 332,
+                  "hit_to": 428,
+                  "align_len": 97,
+                  "gaps": 1,
+                  "qseq": "NNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIG-LKHHHAGYEQF",
+                  "hseq": "NHNLSMWDTSLGSSYMCQKEQTVEVNEDFQIHTFDLRVQPFLVKENKYSTAEDCSLDVDNFIVPIAVGAALGGLVILVLMAYFVGHKKRRNAGYEQF",
+                  "midline": "N+NLS WD  LGSSYMC KEQTV V+  FQI+TFDLRVQPF V + KYSTA+DCS D DNF+VPIAVGAAL G++ILVL+AYF+G  K  +AGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 108,
+              "description": [
+                {
+                  "id": "gi|1121857467|ref|XP_019395740.1|",
+                  "accession": "XP_019395740",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X4 [Crocodylus porosus]",
+                  "taxid": 8502,
+                  "sciname": "Crocodylus porosus"
+                }
+              ],
+              "len": 427,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 116.504,
+                  "score": 313,
+                  "evalue": 1.47676e-33,
+                  "identity": 69,
+                  "positive": 80,
+                  "query_from": 5,
+                  "query_to": 100,
+                  "hit_from": 331,
+                  "hit_to": 427,
+                  "align_len": 97,
+                  "gaps": 1,
+                  "qseq": "NNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIG-LKHHHAGYEQF",
+                  "hseq": "NHNLSMWDTSLGSSYMCQKEQTVEVNEDFQIHTFDLRVQPFLVKENKYSTAEDCSLDVDNFIVPIAVGAALGGLVILVLMAYFVGHKKRRNAGYEQF",
+                  "midline": "N+NLS WD  LGSSYMC KEQTV V+  FQI+TFDLRVQPF V + KYSTA+DCS D DNF+VPIAVGAAL G++ILVL+AYF+G  K  +AGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 109,
+              "description": [
+                {
+                  "id": "gi|1117372404|ref|XP_019376591.1|",
+                  "accession": "XP_019376591",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 [Gavialis gangeticus]",
+                  "taxid": 94835,
+                  "sciname": "Gavialis gangeticus"
+                }
+              ],
+              "len": 440,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 116.119,
+                  "score": 312,
+                  "evalue": 1.92839e-33,
+                  "identity": 69,
+                  "positive": 81,
+                  "query_from": 5,
+                  "query_to": 100,
+                  "hit_from": 344,
+                  "hit_to": 440,
+                  "align_len": 97,
+                  "gaps": 1,
+                  "qseq": "NNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIG-LKHHHAGYEQF",
+                  "hseq": "NHNLSKWDTSLGSSYMCQKEQVVEVNGDFQIHTFDVRVQPFLVKENKYSTAEDCSLDVDNFIVPIAVGAALGGLVILVLMAYFVGHKKHRNAGYEQF",
+                  "midline": "N+NLS WD  LGSSYMC KEQ V V+G FQI+TFD+RVQPF V + KYSTA+DCS D DNF+VPIAVGAAL G++ILVL+AYF+G  KH +AGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 110,
+              "description": [
+                {
+                  "id": "gi|944348088|ref|XP_014377681.1|",
+                  "accession": "XP_014377681",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 [Alligator sinensis]",
+                  "taxid": 38654,
+                  "sciname": "Alligator sinensis"
+                }
+              ],
+              "len": 453,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 114.964,
+                  "score": 309,
+                  "evalue": 4.29366e-33,
+                  "identity": 68,
+                  "positive": 80,
+                  "query_from": 5,
+                  "query_to": 100,
+                  "hit_from": 357,
+                  "hit_to": 453,
+                  "align_len": 97,
+                  "gaps": 1,
+                  "qseq": "NNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIG-LKHHHAGYEQF",
+                  "hseq": "NHNLSKWDTSLGSSYMCQKEQTVEVNEDFQIHTFDVRVQPFLVKENKYSTAEDCSLDVDNFIVPIAVGAALGGLVILVLMAYFVGHKKRRNAGYEQF",
+                  "midline": "N+NLS WD  LGSSYMC KEQTV V+  FQI+TFD+RVQPF V + KYSTA+DCS D DNF+VPIAVGAAL G++ILVL+AYF+G  K  +AGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 111,
+              "description": [
+                {
+                  "id": "gi|697474651|ref|XP_009670271.1|",
+                  "accession": "XP_009670271",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X1 [Struthio camelus australis]",
+                  "taxid": 441894,
+                  "sciname": "Struthio camelus australis"
+                }
+              ],
+              "len": 475,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 107.654,
+                  "score": 290,
+                  "evalue": 6.81608e-31,
+                  "identity": 64,
+                  "positive": 80,
+                  "query_from": 2,
+                  "query_to": 100,
+                  "hit_from": 376,
+                  "hit_to": 475,
+                  "align_len": 100,
+                  "gaps": 1,
+                  "qseq": "SIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIG-LKHHHAGYEQF",
+                  "hseq": "SADNNNFSKWDASLGSSYMCRKEQTLEINEDLQIHTFNLRIQPFLVKENKFSTAEDCSPEVDNFIVPIAVGAALGGLVVLVLMAYFFGHKKHRNAGYEQF",
+                  "midline": "S  NNN S WDA LGSSYMC KEQT+ ++   QI+TF+LR+QPF V + K+STA+DCS + DNF+VPIAVGAAL G+++LVL+AYF G  KH +AGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 112,
+              "description": [
+                {
+                  "id": "gi|719730866|ref|XP_010210240.1|",
+                  "accession": "XP_010210240",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X1 [Tinamus guttatus]",
+                  "taxid": 94827,
+                  "sciname": "Tinamus guttatus"
+                }
+              ],
+              "len": 382,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 106.885,
+                  "score": 288,
+                  "evalue": 1.16168e-30,
+                  "identity": 64,
+                  "positive": 79,
+                  "query_from": 2,
+                  "query_to": 100,
+                  "hit_from": 283,
+                  "hit_to": 382,
+                  "align_len": 100,
+                  "gaps": 1,
+                  "qseq": "SIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIG-LKHHHAGYEQF",
+                  "hseq": "SADNNNISKWDATLGVSYMCQKEQTLEISEKLEINTFNLRIQPFLVKENKFSIAEDCSPEVDNFIVPIAVGAALGGLVVLVLLAYFFGHKKHRNAGYEQF",
+                  "midline": "S  NNN+S WDA LG SYMC KEQT+ +S   +INTF+LR+QPF V + K+S A+DCS + DNF+VPIAVGAAL G+++LVLLAYF G  KH +AGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 113,
+              "description": [
+                {
+                  "id": "gi|1003769384|ref|XP_015716213.1|",
+                  "accession": "XP_015716213",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X1 [Coturnix japonica]",
+                  "taxid": 93934,
+                  "sciname": "Coturnix japonica"
+                }
+              ],
+              "len": 425,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 102.271,
+                  "score": 276,
+                  "evalue": 2.84418e-29,
+                  "identity": 59,
+                  "positive": 78,
+                  "query_from": 2,
+                  "query_to": 100,
+                  "hit_from": 326,
+                  "hit_to": 425,
+                  "align_len": 100,
+                  "gaps": 1,
+                  "qseq": "SIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHH-HAGYEQF",
+                  "hseq": "SADNNNFSKWDASLGNSYMCRKEQTLEINEDLQVHTFNLWVQPFLVKENKFSIAEDCSPEVDYFIVPIAVGAALGGLVVLVIMAYFLGHKKHDNAGYEQF",
+                  "midline": "S  NNN S WDA LG+SYMC KEQT+ ++   Q++TF+L VQPF V + K+S A+DCS + D F+VPIAVGAAL G+++LV++AYF+G K H +AGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 114,
+              "description": [
+                {
+                  "id": "gi|971391260|ref|XP_015133690.1|",
+                  "accession": "XP_015133690",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X1 [Gallus gallus]",
+                  "taxid": 9031,
+                  "sciname": "Gallus gallus"
+                }
+              ],
+              "len": 444,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 99.5807,
+                  "score": 269,
+                  "evalue": 1.83555e-28,
+                  "identity": 60,
+                  "positive": 79,
+                  "query_from": 2,
+                  "query_to": 100,
+                  "hit_from": 345,
+                  "hit_to": 444,
+                  "align_len": 100,
+                  "gaps": 1,
+                  "qseq": "SIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIG-LKHHHAGYEQF",
+                  "hseq": "SADNNNLSKWDASLGNSYMCRKEQTLEINENLQVHTFNLWVQPFLVKENKFSIAEDCSPEVDYFIVPIAVGAALGGLVVLVIMAYFLGHKKHHNTGYEQF",
+                  "midline": "S  NNNLS WDA LG+SYMC KEQT+ ++   Q++TF+L VQPF V + K+S A+DCS + D F+VPIAVGAAL G+++LV++AYF+G  KHH+ GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 115,
+              "description": [
+                {
+                  "id": "gi|551493|gb|AAA99539.1|",
+                  "accession": "AAA99539",
+                  "title": "lysosome-associated membrane glycoprotein LAMP-2a, partial [Gallus gallus]",
+                  "taxid": 9031,
+                  "sciname": "Gallus gallus"
+                }
+              ],
+              "len": 250,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 99.5807,
+                  "score": 269,
+                  "evalue": 1.83555e-28,
+                  "identity": 60,
+                  "positive": 79,
+                  "query_from": 2,
+                  "query_to": 100,
+                  "hit_from": 151,
+                  "hit_to": 250,
+                  "align_len": 100,
+                  "gaps": 1,
+                  "qseq": "SIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIG-LKHHHAGYEQF",
+                  "hseq": "SADNNNLSKWDASLGNSYMCRKEQTLEINENLQVHTFNLWVQPFLVKENKFSIAEDCSPEVDYFIVPIAVGAALGGLVVLVIMAYFLGHKKHHNTGYEQF",
+                  "midline": "S  NNNLS WDA LG+SYMC KEQT+ ++   Q++TF+L VQPF V + K+S A+DCS + D F+VPIAVGAAL G+++LV++AYF+G  KHH+ GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 116,
+              "description": [
+                {
+                  "id": "gi|902903150|ref|XP_013040554.1|",
+                  "accession": "XP_013040554",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X1 [Anser cygnoides domesticus]",
+                  "taxid": 381198,
+                  "sciname": "Anser cygnoides domesticus"
+                }
+              ],
+              "len": 381,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 98.4281,
+                  "score": 266,
+                  "evalue": 4.08075e-28,
+                  "identity": 59,
+                  "positive": 77,
+                  "query_from": 5,
+                  "query_to": 100,
+                  "hit_from": 285,
+                  "hit_to": 381,
+                  "align_len": 97,
+                  "gaps": 1,
+                  "qseq": "NNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIG-LKHHHAGYEQF",
+                  "hseq": "NNNFSKWDAFLGNSYMCRKEQTLEINEDLQVHTFNLWVQPFLVKENKFAIAEDCSPEVDNFIVPIAVGAALGGLVVLVLMAYFFGHKKHRNAGYEQF",
+                  "midline": "NNN S WDA LG+SYMC KEQT+ ++   Q++TF+L VQPF V + K++ A+DCS + DNF+VPIAVGAAL G+++LVL+AYF G  KH +AGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 117,
+              "description": [
+                {
+                  "id": "gi|514756870|ref|XP_005022177.1|",
+                  "accession": "XP_005022177",
+                  "title": "lysosome-associated membrane glycoprotein 2 isoform X1 [Anas platyrhynchos]",
+                  "taxid": 8839,
+                  "sciname": "Anas platyrhynchos"
+                }
+              ],
+              "len": 429,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 98.4281,
+                  "score": 266,
+                  "evalue": 4.08075e-28,
+                  "identity": 59,
+                  "positive": 77,
+                  "query_from": 5,
+                  "query_to": 100,
+                  "hit_from": 333,
+                  "hit_to": 429,
+                  "align_len": 97,
+                  "gaps": 1,
+                  "qseq": "NNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIG-LKHHHAGYEQF",
+                  "hseq": "NNNFSKWDAFLGNSYMCRKEQTLEINEDLQVHTFNLWVQPFLVKENKFAIAEDCSPEVDNFIVPIAVGAALGGLVVLVLMAYFFGHKKHRNAGYEQF",
+                  "midline": "NNN S WDA LG+SYMC KEQT+ ++   Q++TF+L VQPF V + K++ A+DCS + DNF+VPIAVGAAL G+++LVL+AYF G  KH +AGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 118,
+              "description": [
+                {
+                  "id": "gi|1215478564|gb|OXB72036.1|",
+                  "accession": "OXB72036",
+                  "title": "hypothetical protein H355_010638 [Colinus virginianus]",
+                  "taxid": 9014,
+                  "sciname": "Colinus virginianus"
+                }
+              ],
+              "len": 173,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 98.0439,
+                  "score": 265,
+                  "evalue": 5.32582e-28,
+                  "identity": 61,
+                  "positive": 79,
+                  "query_from": 2,
+                  "query_to": 100,
+                  "hit_from": 74,
+                  "hit_to": 173,
+                  "align_len": 100,
+                  "gaps": 1,
+                  "qseq": "SIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIG-LKHHHAGYEQF",
+                  "hseq": "SADNNNFSKWDASLGNSYMCRKEQTLEVNEDLQVHTFNLWVQPFLVKENKFSIAEDCSPEVDYFIVPIAVGAALGGLVVLVIVAYFLGHKKHHNAGYEQF",
+                  "midline": "S  NNN S WDA LG+SYMC KEQT+ V+   Q++TF+L VQPF V + K+S A+DCS + D F+VPIAVGAAL G+++LV++AYF+G  KHH+AGYEQF"
+                }
+              ]
+            },
+            {
+              "num": 119,
+              "description": [
+                {
+                  "id": "gi|1049230746|ref|XP_017553821.1|",
+                  "accession": "XP_017553821",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 isoform X2 [Pygocentrus nattereri]",
+                  "taxid": 42514,
+                  "sciname": "Pygocentrus nattereri"
+                }
+              ],
+              "len": 353,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 97.2756,
+                  "score": 263,
+                  "evalue": 9.07112e-28,
+                  "identity": 57,
+                  "positive": 77,
+                  "query_from": 1,
+                  "query_to": 100,
+                  "hit_from": 253,
+                  "hit_to": 352,
+                  "align_len": 101,
+                  "gaps": 2,
+                  "qseq": "FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADD-DNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "FSTTTSNLSLWEASLGSSYMCRKEQTYNLTDSLILNTFELQVQPFGVIDEKFSTAEDCRADEPDSFIVPIAVGVALIVLILIVILAYFIG-RRRSVGYEQF",
+                  "midline": "FS   +NLS W+A LGSSYMC KEQT +++ +  +NTF+L+VQPF V   K+STA+DC AD+ D+F+VPIAVG AL  ++++V+LAYFIG +    GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 120,
+              "description": [
+                {
+                  "id": "gi|975132904|ref|XP_015282528.1|",
+                  "accession": "XP_015282528",
+                  "title": "PREDICTED: lysosome-associated membrane glycoprotein 2 [Gekko japonicus]",
+                  "taxid": 146911,
+                  "sciname": "Gekko japonicus"
+                }
+              ],
+              "len": 576,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 62.0494,
+                  "score": 171,
+                  "evalue": 3.64593e-17,
+                  "identity": 54,
+                  "positive": 72,
+                  "query_from": 5,
+                  "query_to": 100,
+                  "hit_from": 423,
+                  "hit_to": 576,
+                  "align_len": 154,
+                  "gaps": 58,
+                  "qseq": "NNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINT-------FDLRVQPFNVTQG--------------------------------------------------KYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGL-KHHHAGYEQF",
+                  "hseq": "NNSLSYWDASLGSSYMCRKEETLIVTEGFRIKTFDLRVQPFDVKENKYSTAQECSLDDDTILIPIAVGTALVILIVIIVFAYVIGRRKGYAGYQTLQVGWKWVKFVQAEDCSPEVDNFFVPIVVAAALAGLVCLIFMAYFVGRRKHRGSGYEQF",
+                  "midline": "NN+LSYWDA LGSSYMC KE+T+ V+  F+I T       FD++   ++  Q                                                   K+  A+DCS + DNF VPI V AALAG++ L+ +AYF+G  KH  +GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 121,
+              "description": [
+                {
+                  "id": "gi|344244903|gb|EGW01007.1|",
+                  "accession": "EGW01007",
+                  "title": "Lysosome-associated membrane glycoprotein 2 [Cricetulus griseus]",
+                  "taxid": 10029,
+                  "sciname": "Cricetulus griseus"
+                },
+                {
+                  "id": "gi|537120881|gb|ERE64073.1|",
+                  "accession": "ERE64073",
+                  "title": "lysosome-associated membrane glycoprotein 2 precursor [Cricetulus griseus]",
+                  "taxid": 10029,
+                  "sciname": "Cricetulus griseus"
+                }
+              ],
+              "len": 323,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 60.9058,
+                  "score": 168,
+                  "evalue": 8.05499e-17,
+                  "identity": 42,
+                  "positive": 44,
+                  "query_from": 54,
+                  "query_to": 100,
+                  "hit_from": 277,
+                  "hit_to": 323,
+                  "align_len": 47,
+                  "gaps": 0,
+                  "qseq": "TAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "SAQDCSADEDNFLVPIAVGAALAGVLALVLLAYFIGLKRHHTGYEQF",
+                  "midline": "+AQDCSAD+DNFLVPIAVGAALAGVL LVLLAYFIGLK HH GYEQF"
+                }
+              ]
+            },
+            {
+              "num": 122,
+              "description": [
+                {
+                  "id": "gi|700588051|pdb|2MOF|A",
+                  "accession": "2MOF_A",
+                  "title": "Chain A, Structural Insights Of Tm Domain Of Lamp-2a In Dpc Micelles",
+                  "taxid": 9606,
+                  "sciname": "Homo sapiens"
+                },
+                {
+                  "id": "gi|700588052|pdb|2MOM|A",
+                  "accession": "2MOM_A",
+                  "title": "Chain A, Structural Insights Of Tm Domain Of Lamp-2a In Dpc Micelles",
+                  "taxid": 9606,
+                  "sciname": "Homo sapiens"
+                },
+                {
+                  "id": "gi|700588053|pdb|2MOM|B",
+                  "accession": "2MOM_B",
+                  "title": "Chain B, Structural Insights Of Tm Domain Of Lamp-2a In Dpc Micelles",
+                  "taxid": 9606,
+                  "sciname": "Homo sapiens"
+                },
+                {
+                  "id": "gi|700588054|pdb|2MOM|C",
+                  "accession": "2MOM_C",
+                  "title": "Chain C, Structural Insights Of Tm Domain Of Lamp-2a In Dpc Micelles",
+                  "taxid": 9606,
+                  "sciname": "Homo sapiens"
+                }
+              ],
+              "len": 42,
+              "hsps": [
+                {
+                  "num": 1,
+                  "bit_score": 54.8145,
+                  "score": 152,
+                  "evalue": 5.49207e-15,
+                  "identity": 42,
+                  "positive": 42,
+                  "query_from": 59,
+                  "query_to": 100,
+                  "hit_from": 1,
+                  "hit_to": 42,
+                  "align_len": 42,
+                  "gaps": 0,
+                  "qseq": "SADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "hseq": "SADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF",
+                  "midline": "SADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF"
+                }
+              ]
+            }
+          ],
+          "stat": {
+            "db_num": 131901601,
+            "db_len": 1146791569,
+            "hsp_len": 9,
+            "eff_space": 47204317416,
+            "kappa": 0.047,
+            "lambda": 0.27,
+            "entropy": 1
+          }
+        }
+      }
+    }
+  }
+]
+}
+
+

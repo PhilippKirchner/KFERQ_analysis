@@ -1,0 +1,298 @@
+---
+title: "Figure_2"
+output: html_document
+---
+
+This markdown file contains the necessary code to to generate the data and diagrams for Figure 2 and S2
+Several files generated in the markdown for Figure 1 are necessary to run these scripts
+
+```{r distribution of motifs along the protein length}
+#The position of the motifs is normalized to the protein length (0 = N-terminus, 1 = C-terminus)
+getAbsFreq <- function(who, motif){
+  subSet <- left_join(CMA.motifs, select(CMA.protRel,Entry,topGroups), by = "Entry")
+  subSet <- eval(parse(text=paste0("subSet %>% filter(topGroups == \"",eval(who),"\", ",eval(motif)," == 1) ")))
+  ggplot(subSet, aes(x= relPos)) + geom_histogram(breaks = seq(0,1,by = 0.02), size=0.5, boundary = 0, fill = "grey20")  + theme_classic() + scale_y_continuous(expand=c(0,0))  + theme(plot.title=element_text(size=9),axis.title.y=element_text(size=9),axis.title.x=element_text(size=9),axis.text.x=element_text(size=9, color="black"),axis.text.y=element_text(size=9,color="black"), axis.ticks = element_line(color = "black"), plot.margin  = unit(c(0.05,0.2,0.05,0.05),"inch"))
+}
+
+canonFreq <- getAbsFreq(who="canon", motif = "canonical")
+canonFreq <- canonFreq +  theme(legend.position = "none") + labs(title="distribution of canonical motifs",x="relative protein length",y="n of motifs")   
+
+phosFreq <- getAbsFreq(who="phos", motif = "phos")
+phosFreq <- phosFreq +  theme(legend.position = "none") + labs(title="distribution of phosph.-gen. motifs",x="relative protein length",y="n of motifs") 
+
+kFreq <- getAbsFreq(who="Konly", motif = "K") 
+kFreq <- kFreq +  theme(legend.position = "none") + labs(title="distribution of acetyl.-gen. motifs",x="relative protein length",y="n of motifs")  
+
+ggsave("images/canonical_density.png",canonFreq, height = 1.25, width = 2.75, device = "png")
+ggsave("images/phos_density.png",phosFreq, height = 1.25, width = 2.75, device = "png")
+ggsave("images/K_density.png",kFreq, height = 1.25, width = 2.75, device = "png")
+```
+
+To estimate the effect of the initiator Methionine the motif positions are calculated excluding the first N-terminal Methionine (column relPos_corr generated in for Fig1)
+
+```{r omitting first Methionine}
+getAbsFreq_noMeth <- function(who, motif){
+  subSet <- left_join(CMA.motifs, select(CMA.protRel,Entry,topGroups), by = "Entry")
+  subSet <- eval(parse(text=paste0("subSet %>% filter(topGroups == \"",eval(who),"\", ",eval(motif)," == 1) ")))
+  ggplot(subSet, aes(x= relPos_corr)) + geom_histogram(breaks = seq(0,1,by = 0.02), size=0.5, boundary = 0, fill = "grey20")  + theme_classic() + scale_y_continuous(expand=c(0,0))  + theme(plot.title=element_text(size=9),axis.title.y=element_text(size=9),axis.title.x=element_text(size=9),axis.text.x=element_text(size=9, color="black"),axis.text.y=element_text(size=9,color="black"), axis.ticks = element_line(color = "black"), plot.margin  = unit(c(0.05,0.2,0.05,0.05),"inch"))
+}
+
+canonFreq_noMeth <- getAbsFreq_noMeth(who="canon", motif = "canonical")
+canonFreq_noMeth <- canonFreq_noMeth +  theme(legend.position = "none") + labs(title="distribution of canonical motifs ",x="relative protein length",y="n of motifs")
+
+ggsave("images/canonical_density_noMeth.png",canonFreq_noMeth, height = 1.25, width = 2.75, device = "png")
+
+```
+
+As a measure for the deacrease in density the mean number of motifs in the first 10% of the protein length versus the motifs in the last 10% is calculated
+
+```{r percent difference between N-term and rest of the protein}
+getCvsRest <- function(who, motif ){
+  subSet <- left_join(CMA.motifs, select(CMA.protRel,Entry,topGroups), by = "Entry")
+  subSet <- eval(parse(text=paste0("subSet %>% filter(topGroups == \"",eval(who),"\", ",eval(motif)," == 1) ")))
+
+  first10 <- subSet %>% filter(relPos <= 0.025) %>% summarise(n = n()) %>% mutate(n/2.5)
+  last90 <- subSet %>% filter(relPos > 0.025) %>% summarise(n = n()) %>% mutate(n/97.5)
+  return(round(100*(first10/last90),digits=2))
+}
+
+getCvsRest(who="canon",motif="canonical")
+```
+
+For better visibility, the N- ad C-terminal regions are magnified
+
+```{r fine grain histogram N-terminal vs C-terminal region}
+AbsFreqTerm <- function(whichEnd){
+  subSet <- left_join(CMA.motifs, select(CMA.protRel,Entry,topGroups), by = "Entry")
+  subSet <- subSet %>% filter(topGroups == "canon", canonical == 1)
+  if (whichEnd == "N-terminus")
+    subSet <- subSet %>% filter(relPos <=0.1)
+  else if (whichEnd == "C-terminus")
+    subSet <- subSet %>% filter(relPos > 0.9)
+  histogram <- ggplot(subSet,aes(x=relPos)) + geom_histogram(binwidth=0.001, boundary=0, fill="grey20") + theme_classic() + scale_y_continuous(expand=c(0,0)) + coord_cartesian(ylim = c(0,40)) + labs(title=paste0("region close to the ",whichEnd),x="relative amino acid position", y = "n of motifs") + theme(plot.title=element_text(size=9), axis.title.x=element_text(size=9) , axis.title.y=element_text(size=9), axis.text=element_text(color="black"), axis.ticks = element_line(color="black"))
+  if (whichEnd == "C-terminus")
+    histogram <- histogram + scale_x_reverse() + labs(title = "region close to the C-terminus (reversed)")
+  return(histogram)
+}
+
+ggsave("images/canonical_nHisto.png", AbsFreqTerm("N-terminus"), height = 1.75, width = 3, device = "png")
+ggsave("images/canonical_cHisto.png", AbsFreqTerm("C-terminus"), height = 1.75, width = 3, device = "png")
+```
+
+To get information about the environment in which the KFERQ-like motifs are located we used a prediction of the protein disorder (IUPred) in the region around the protein versus the whole protein. Additionaly, for a group of experimentally confirmed proteins the disorder score is compared with a prediction of exposed or buried amino acids (dssp on experimental structures from pdb or predicted structures using JPred4)
+
+To reduce the complexity of the results that occurs if several proteins are present in one protein we for ow only focused on proteins that harbor one single motif. This is done for all three classes of motifs
+
+```{r exporting files as individual FASTA}
+#IUPred is run from a bash script that loops through a list of entries in a FASTA file
+#The index of this list is saved in a separate file "file_info.txt"
+
+#For phos. act. motifs indiGroups has to be changed to "phonly" and for acetyl. act. to "Konly" respectively
+querySet <- left_join(CMA.motifs, select(CMA.protRel,Entry,indiGroups, motifSum), by = "Entry")
+querySet <- querySet %>% filter(indiGroups == "canonly", motifSum == 1)
+querySet <- left_join(querySet,select(all.prot,Entry,`Protein names`, Sequence), by = "Entry")
+
+makeFASTA <- function(querySet){
+  exportFASTA <- function(x){
+    protein <- eval(parse(text=paste0("querySet %>% filter(Entry == \"",eval(querySet$Entry[x]),"\") %>% summarise(ID = first(Entry), desc = first(`Protein names`), seq = first(Sequence))")))
+    FASTA <- paste0(">",protein$ID,":",protein$desc,"\n",protein$seq)
+    write.table(FASTA,paste0("IUPred_input/",protein$ID,".seq"),quote=F,col.names = F, row.names = F)
+  }
+  for (i in seq_len(nrow(querySet))){
+    exportFASTA(i)
+  }
+  metadata <- data.frame(number = seq_len(nrow(querySet)), filename = paste0(querySet$Entry,".seq"))
+  write.table(metadata,"IUPred_input/file_info.txt",quote=F,col.names = F, row.names = F, sep = "\t")
+  print(paste0(nrow(metadata)," files saved"))
+}
+
+makeFASTA(querySet)
+```
+
+bash script:
+
+#!/bin/bash
+#the IUPpred_PATH variable has to be set to /Users/kirchner/IUPred/iupred for the script to work
+
+set -e
+set -u
+set -o pipefail
+
+if ! test -d IUPred_input
+then
+	echo "no input folder present"
+	exit 1
+fi
+
+if test -d IUPred_output
+then
+	echo "writing in existing output folder potentially overwriting existing data"
+else
+	mkdir IUPred_output
+fi
+
+sample_info=IUPred_input/file_info.txt
+
+sample_files=($(cut -f 2 "$sample_info"))
+
+for seq_file in ${sample_files[@]}
+do
+	results_file="$(basename $seq_file .seq)-disorder.txt"
+	~/IUPred/iupred/iupred "input/$seq_file" long > "IUPred_output/$results_file"
+done
+
+
+```{r read IUPred results}
+#after running the IUPred script the results are reimportet into r
+disorderResults <- rbindlist(setNames(lapply(querySet$Entry,function(x){
+  loadedData <- read.table(paste0("IUPred_output/",x,"-disorder.txt"),stringsAsFactors = F, skip = 9)
+  colnames(loadedData) <- c("pos","residue","disorderScore")
+  return(loadedData)
+}),querySet$Entry),idcol="Entry")
+```
+
+```{r isolate the regio +/- 100 aa around the motifs}
+#The 200 amino acids centered at the motif position are considered the motif region
+#This size was chosen since most of the proteins are rather small and a larger motif region often encompasses most of the protein
+disorderEnviro <- rbindlist(lapply(querySet$Entry,function(Entry){
+  subSet <- eval(parse(text=paste0("disorderResults %>% filter(Entry == \"",eval(Entry),"\")")))
+  motifPos <- eval(parse(text=paste0("querySet %>% filter(Entry == \"",eval(Entry),"\") %>% select(motifPos) %>% unlist(.)")))
+  bounds <- c(max((motifPos-100),1),min((motifPos+100),nrow(subSet)))
+  return(slice(subSet,c(bounds[1]:bounds[2])))
+}))
+```
+
+```{r analyze disorder data}
+allMeanD <- disorderResults %>% group_by(Entry) %>% summarise(meanDis = sum(disorderScore)/n(), region = "all")
+regionMeanD <- disorderEnviro %>% group_by(Entry) %>% summarise(meanDis = sum(disorderScore)/n(), region = "regio")
+
+meanDis <- left_join(select(allMeanD,-region),select(regionMeanD,Entry,meanDis), by="Entry")
+colnames(meanDis)[c(2,3)] <- c("meanDisAll","meanDisRegion")
+meanDis <- meanDis %>% mutate(dif = abs(meanDisRegion-meanDisAll))
+meanDis <- left_join(meanDis, querySet, by = "Entry")
+
+write.table(select(meanDis,Entry,meanDisAll,meanDisRegion,dif,Length,motifPos),"onlyOneCanon_disorder.txt")
+```
+
+```{r plots}
+meanDis <- read.table("onlyOneCanon_disorder.txt", header = T, stringsAsFactors = F)
+
+linModDis <- lm(meanDisAll ~ meanDisRegion, data = meanDis)
+
+disorderScatter <- ggplot(meanDis, aes(x=meanDisAll,y=meanDisRegion)) + geom_point(alpha = 0.5, size = 0.5) + theme_classic() + geom_hline(aes(yintercept = 0.4), color = "red", show.legend = F) + annotate("text",label=paste(round(100*(length(meanDis$meanDisRegion[meanDis$meanDisRegion>0.4])/nrow(meanDis)),digits= 2),"%"),x=0.2,y=0.8, size = 3) + scale_x_continuous(expand=c(0,0),breaks = c(0,0.2,0.4,0.6,0.8,1)) +  scale_y_continuous(expand=c(0,0),breaks = c(0,0.2,0.4,0.6,0.8,1)) + coord_cartesian(ylim=c(0,1), xlim = c(0,1)) + labs(x = "disorder in the whole protein", y="disorder in motif region")  + theme(plot.title=element_text(size=10),axis.title.y=element_text(size=9),axis.title.x=element_text(size=9),axis.text.x=element_text(size=9, color="black"),axis.text.y=element_text(size=9,color="black")) 
+
+#print(disorderScatter)
+ggsave("images/onlyOneCanon_disorder_scatter.pdf",disorderScatter,height=2.5, width = 2.6 , device="pdf")
+```
+
+For later analyses of functional enrichment and motif conservation across species it will be interesting to focus on motifs in regions that are more disordered than the rest of the protein. In experimentally confirmed CMA substrates the motifs are often found in local regions of increased disorder (although these regions frequently cannot be considered to be disordered themself).
+
+```{r extract most disordered motifs}
+#For the relatively disordered motif we included all motifs with a higher disorder than the whole protein while exluding motifs in highly disordered proteins and motifs in highly ordered regions
+meanDis <- meanDis %>% mutate(relDis = meanDisRegion/meanDisAll)
+meanDis$highDis <- ifelse(meanDis$relDis >1.2,ifelse(meanDis$meanDisRegion > 0.3,1,0),0)
+
+disorderScatterColor <- ggplot(meanDis, aes(x=meanDisAll,y=meanDisRegion,color=highDis)) + geom_point(alpha = 0.5, size = 0.5) + theme_classic() + geom_hline(aes(yintercept = 0.4), color = "red", show.legend = F) + annotate("text",label=paste(round(100*(length(meanDis$meanDisRegion[meanDis$meanDisRegion>0.4])/nrow(meanDis)),digits= 2),"%"),x=0.2,y=0.8, size = 3) + scale_x_continuous(expand=c(0,0),breaks = c(0,0.2,0.4,0.6,0.8,1)) +  scale_y_continuous(expand=c(0,0),breaks = c(0,0.2,0.4,0.6,0.8,1)) + coord_cartesian(ylim=c(0,1), xlim = c(0,1)) + labs(x = "disorder in the whole protein", y="disorder in motif region")  + theme(plot.title=element_text(size=10),axis.title.y=element_text(size=9),axis.title.x=element_text(size=9),axis.text.x=element_text(size=9, color="black"),axis.text.y=element_text(size=9,color="black"), legend.position = "none") 
+
+ggsave("images/onlyOneKCnon_disorder_color.pdf",disorderScatterColor,height=2.5, width = 2.6 , device="pdf")
+```
+
+Experimentally confirmed motifs are identified from literature and their sequence, pdb structures, JPred4 predicted structures, IUPred disorder scores are collected
+
+```{r plotting disorder in region versus the whole protein}
+#The sequence and position for experimentally confirmed motifs in 17 proteins are collected in the file "knownSubstrates_motifs.csv"
+#Disorder scores are calculated using IUPred as described above
+
+knownSubsMotifs <- read.csv("raw_data/conf_motifs/knownSubstrates_motifs.csv", stringsAsFactors = F)
+refAAsize <- read.csv("raw_data/conf_motifs/amino_acid_surfaceArea_NEW.csv")
+
+makeKnownMotifPlot <- function(x){
+  protein <- knownSubsMotifs$ID[x]
+  name <- knownSubsMotifs$name[x]
+  indexMod <- knownSubsMotifs$indexMod[x]
+  
+  #load data for the protein (IUPred, exposurePDB, exposureJPred, motif positions)
+IUPred <- read.table(paste0("raw_data/conf_motifs/IUPred/",protein,".txt-disorder.txt"),stringsAsFactors = F, skip = 9)
+  colnames(IUPred) <- c("index","residue","disorderScore")
+
+#The JPred output format contains some additional formatting and has to be cleand up before use
+  predSurf <- read.table(paste0("raw_data/conf_motifs/JPred/",protein,"_JPred.txt"),sep=",", stringsAsFactors = F, nrows=14)
+  mixedCol <- predSurf[,1]
+  predSurf[,1] <- sapply(strsplit(mixedCol,":"),"[",2)
+  predSurf <- as.data.frame(t(predSurf[,c(1:ncol(predSurf)-1)]))
+  colnames(predSurf) <- sapply(strsplit(mixedCol,":"),"[",1)
+  #JPred only accepts inputs up to 600 amino acids. For longer proteins a 600 amino acid fragment containing the motif position was chosen.
+  #To properly align the JPred fragments to the other data the starting index has to be shifted by indexMod
+  predSurf$index <- c(seq_len(nrow(predSurf))+indexMod)
+
+  #adding the structural information from pdb records
+  if (file.exists(paste0("raw_data/conf_motifs/pdb/pdb_",protein,".ent.txt"))){
+    pdb <- read.pdb(paste0("raw_data/conf_motifs/pdb/pdb_",protein,".ent.txt"))
+    sse <- dssp(pdb)
+    pdbSurf <- data.frame(index = pdb$atom$resno[pdb$atom$elety=="CA"], threeLetter = pdb$atom$resid[pdb$atom$elety=="CA"], acc = sse$acc, stringsAsFactors = F)
+    pdbSurf <- left_join(pdbSurf, refAAsize, by = "threeLetter")
+    pdbSurf <- pdbSurf %>% mutate(percExp = acc/TienTheoretical)
+    pdbSurf$pdbSurf <- ifelse(pdbSurf$percExp < 0.25,"B","-")
+  } else{
+    pdbSurf <- data.frame(index = seq_len(nrow(IUPred)), pdbSurf = rep("x",nrow(IUPred)))
+  }
+
+  #combining IUPred, JPred and pdb data sets and dealing with missing values
+  plotData <- left_join(IUPred,select(pdbSurf,index,pdbSurf),by="index")
+  plotData$pdbSurf[is.na(plotData$pdbSurf)] <- "x"
+  plotData <- left_join(plotData,select(predSurf,index,predSurf=JNETSOL25),by="index")
+  plotData$predSurf[is.na(plotData$predSurf)] <- "x"
+
+  
+  
+  #extracting the information about the motifs
+descMotifs <- data.frame(raw = unlist(strsplit(knownSubsMotifs$described_motif[x],";")),stringsAsFactors = F)
+  descMotifs <- descMotifs %>% rowwise() %>% do(motif = unlist(strsplit(.$raw,"_"))[1], kind = unlist(strsplit(.$raw,"_"))[2], pos = unlist(strsplit(.$raw,"_"))[3])
+  descMotifs <- as.data.frame(descMotifs)
+  descMotifs <- descMotifs %>% mutate_all(funs(as.character(.)))
+  
+  #To diplay the data a base plot is generated with the IUPred, JPred and pdb information and the motif poitions are overlayed on this plot
+  
+  basePlot <- ggplot(plotData, aes(x=index,y=disorderScore)) + geom_line(size=0.4) + geom_hline(aes(yintercept=0.4),color="red", size = 0.3) + geom_hline(aes(yintercept=0),color="black",size=0.4) + geom_point(aes(x=index,y=-0.25,fill = pdbSurf),shape=22, size =2,stroke =0) + geom_point(aes(x=index,y=-0.45,fill = predSurf),shape=22, size = 2, stroke=0) + theme_classic() + scale_fill_manual(values=c("grey25","green3","white"),breaks=c("-","B"),labels=c("exposed","buried")) + scale_x_continuous(expand=c(0,0)) + scale_y_continuous(expand=c(0,0), breaks = c(-0.45, -0.25, 0,0.2,0.4,0.6,0.8,1), labels = c("jPred4", "pdb","0","0.2","0.4","0.6","0.8","1")) + coord_cartesian(ylim=c(-0.6,1)) + labs(x = "amino acid position", y = "disorder score") + theme(plot.title=element_text(size=9, hjust=0.5),axis.title.y=element_text(size=9,hjust=0.75),axis.title.x=element_text(size=9) ,axis.text.x=element_text(size=9, color="black"),axis.text.y=element_text(size=9,color="black"), axis.line = element_line(size = 0.4), axis.ticks = element_line(color="black") , legend.text =  element_text(size=9,color="black"), legend.background = element_rect(fill = NA) , legend.position = c(0.5,0.325), legend.title = element_blank(), legend.direction = "horizontal")
+  
+  motifKind <- factor(descMotifs$kind)
+  colorVector <- c(rep("black",length(levels(motifKind))))
+  colorVector[levels(motifKind)=="C"] <- "yellow2"
+  colorVector[levels(motifKind)=="P"] <- "deepskyblue3"
+  colorVector[levels(motifKind)=="K"] <- "chartreuse3"
+  colorVector[levels(motifKind)=="N"] <- "orange"
+  
+  ggsave(paste0("images/paper_",protein,"_descMotifs.png"),basePlot + geom_vline(data=descMotifs, aes(xintercept=as.integer(pos), color = kind), show.legend = F) + scale_color_manual(values = colorVector) + labs(title = name), width =2.5, height = 2.2, device ="png" )
+  
+}
+
+for(i in nrow(knownSubsMotifs))
+  makeKnownMotifPlot(i)
+```
+
+```{r scatter plots for known motifs}
+#similar to all proteins with canonical motifs the mean protein disorder can be plotted against the mean disorder in the described motifs
+knownMotifs <- read.csv("raw_data/conf_motifs/knownSubstrates_motifs.csv", stringsAsFactors = F)
+
+getPlotData <- function(protein){
+  IUPred <- read.table(paste0("raw_data/conf_motifs/IUPred/",protein,".txt-disorder.txt"),stringsAsFactors = F, skip = 9)
+  colnames(IUPred) <- c("index","residue","disorderScore")
+  currentMotifs <- eval(parse(text=paste0("knownMotifs %>% filter(ID ==\"",eval(protein),"\")")))
+  descMotifs <- data.frame(raw = unlist(strsplit(currentMotifs$described_motif,";")),stringsAsFactors = F)
+  descMotifs <- descMotifs %>% rowwise() %>% do(motif = unlist(strsplit(.$raw,"_"))[1], kind = unlist(strsplit(.$raw,"_"))[2], pos = unlist(strsplit(.$raw,"_"))[3])
+  descMotifs <- as.data.frame(descMotifs)
+  
+  protName <- unlist(strsplit(protein,"_"))[1]
+  length <- nrow(IUPred)
+  regionDis <- sapply(as.integer(descMotifs$pos),function(x){mean(IUPred$disorderScore[c(max(0,x-100),min(length,x+100))])})
+  output <- data.frame(name = protName, protDis = mean(IUPred$disorderScore), regionDis = regionDis, relPos = as.integer(descMotifs$pos)/length)
+}
+
+scatterPD <- rbindlist(lapply(knownMotifs$ID,getPlotData))
+
+descMotScatter <- ggplot(scatterPD,aes(x=protDis, y = regionDis, color = relPos)) + geom_point(size = 1.5) + geom_hline(aes(yintercept=0.4),color="red") +  geom_text_repel(aes(label=name),size=2) + theme_classic()  + scale_x_continuous(expand=c(0,0),breaks = c(0,0.2,0.4,0.6,0.8,1)) + scale_y_continuous(expand=c(0,0),breaks = c(0,0.2,0.4,0.6,0.8,1)) + coord_cartesian(ylim=c(0,1), xlim = c(0,1)) + scale_color_gradient(high = "blue", low="red", limits = c(0,1), name = "relative\nposition")  + labs(x = "disorder in whole protein", y = "disorder in motif region") + theme(axis.title.y=element_text(size=9),axis.title.x=element_text(size=9) ,axis.text.x=element_text(size=9, color="black"),axis.text.y=element_text(size=9,color="black"), legend.title = element_text(size =9, color ="black"), legend.text =  element_text(size=8,color="black"), legend.key.size = unit(0.1,"inch"), legend.position = c(0.9,0.75)) 
+
+ggsave("images/described_scatter.pdf",descMotScatter, height=2.5, width = 2.6, device="pdf")
+```
+
+

@@ -1,0 +1,202 @@
+---
+title: "Figure_3"
+output: html_document
+---
+
+This markdown file contains the necessary code to to generate the data and diagrams for Figure 3 and S3
+Several files generated in the markdown for Figure 1 are necessary to run these scripts
+
+To analyze the amino acid composition of the identified motifs the percentages of each amino acid at the four variable positions is calculated. In addition the amino acids are grouped by their biophysical properties into basic acidic and hydrophilic and the percentages are calculated
+To compare the observed amino acid distribution with a random distribution the motifs in the permutated data set (see figure 1) are used as a basline.
+
+```{r calculate percentages}
+makeAAMatrix <- function(dataSet, order){
+
+  dataSet$minus4 <- as.character(dataSet$minus4)
+  dataSet$minus3 <- as.character(dataSet$minus3)
+  dataSet$minus2 <- as.character(dataSet$minus2)
+  dataSet$minus1 <- as.character(dataSet$minus1)
+
+  getAAall <- function(x){eval(parse(text=paste0("dataSet %>% group_by(",eval(x),") %>% summarise(n=n()) %>% select(AA=",eval(x), ",n) ")))}
+
+  AA <- setNames(lapply(c("minus4","minus3","minus2","minus1"),getAAall),c("minus4","minus3","minus2","minus1"))
+
+  AA_join <- full_join(AA$minus4,AA$minus3,by="AA")
+  AA_join <- full_join(AA_join,AA$minus2,by="AA")
+  AA_join <- full_join(AA_join,AA$minus1,by="AA")
+
+  colnames(AA_join)[2:5] <-c("minus4","minus3","minus2","minus1")
+  AA_join <-  AA_join[match(order,AA_join$AA),]
+
+  outputM <- as.matrix(AA_join[,2:5])
+  rownames(outputM)  <- unlist(AA_join[,1])
+  
+  return(outputM)
+}
+```
+
+```{r making the heatmaps for the percentages}
+#The heatmaps show the percentage of each amino acid at the four variable positions (for each amino acid the four positions sum up to 100%)
+
+AAs <- c("K","R","I","L","V","F","E","D")
+phosAAs <- c("K","R","I","L","V","F","S","T","Y")
+
+makeRawHeatmaps <- function(who, reps){
+  
+  if (who == "phos"){
+    length = 2.25
+    AAset <- phosAAs
+  }
+  else{
+    length = 2
+    AAset <- AAs
+  }
+  
+  CMA <- eval(parse(text=paste0("CMA.motifs %>% filter(",eval(who)," == 1)")))
+  CMAraw <- makeAAMatrix(CMA,order = AAset)
+  
+  write.table(CMAraw,paste0("test_",who,".txt"),sep="\t", col.names = F)
+  
+  totPerGroup <- rowSums(CMAraw)
+  CMAraw <- round(100*(CMAraw/totPerGroup),2)
+  
+  #write.table(CMAraw,paste0("rawPercentages_",who,".txt"),sep="\t", col.names = F)
+  
+  #Initially the heatmap color ranges were adjusted to the biggest and smalles values in the matrix
+  #range <- ceiling(max(max(25-min(CMAraw),5),max(max(CMAraw)-25,5)))
+  #To make different heat maps more comparable the maximal range (found for acetylation activated motifs) 
+  #was used
+  range <- 11
+  color_breaks_raw <- c(seq(25-range,25+range, length = 60))
+
+  png(paste0("images/individual_heatmap_raw_",who,".png"),width = 5*300,height = (2*(length*2+0.6))*300, res = 300)
+  heatmap.2(CMAraw,Colv=NA,Rowv=NA,trace="none",density.info="none",dendrogram="none",breaks = color_breaks_raw, col=colorRampPalette(c("white", "blue"))(n = 59),  margins = c(0,0), labCol=NA, keysize=0.5,key.title = NA, key.xlab=NA, key.par = list(cex=1.5), key.xtickfun = function(){
+    list(at = seq(0,1,length = 5), labels = c(seq(25-range,25+range, length = 5)))
+  },lmat = matrix(c(1,1,4,1,1,4,0,2,3),3,3), lwid = c(1,1,0.5), lhei = c(length,length,0.6))
+  dev.off()
+}
+
+makeRawHeatmaps("canonical")
+makeRawHeatmaps("phos")
+makeRawHeatmaps("K")
+```
+
+To calculate the relative enrichment of the amino acids at the observed positions over the motifs obtained from the permutated proteome (see figure 1) each position is evaluated by sampling 10% of the data sets 40 times to estimate mean and standard deviation. This avoids modeling complicated interdependencies between the positions.
+The results are corrected for multiple testing using the Bonferroni method
+
+```{r making the heatmaps for the relative enrichment}
+makeRelHeatmaps <- function(who, reps){
+  
+  if (who == "phos"){
+    length = 2.25
+    AAset <- phosAAs
+  }
+  else{
+    length = 2
+    AAset <- AAs
+  }
+
+  CMA <- eval(parse(text=paste0("CMA.motifs %>% filter(",eval(who)," == 1)")))
+  RND <- eval(parse(text=paste0("CMA.motifsPerm %>% filter(",eval(who)," == 1)")))
+
+  rndMatrix <- function(x, dataSet, sampleSize){
+    rndSet <- eval(parse(text=paste0("dataSet %>% sample_n(",eval(sampleSize),")")))
+    makeAAMatrix(rndSet, order = AAset)
+  }
+  
+  sampleSize = floor(nrow(CMA)*0.1)
+  CMAsample <- lapply(seq_len(reps),rndMatrix, dataSet = CMA, sampleSize = sampleSize)
+  RNDsample <- lapply(seq_len(reps),rndMatrix, dataSet = RND, sampleSize = sampleSize)
+ 
+  CMAsampleMean <- apply(array(unlist(CMAsample),c(length(AAset),4,reps)),c(1:2),mean)
+  CMAsampleSd <- apply(array(unlist(CMAsample),c(length(AAset),4,reps)),c(1:2),sd)
+  
+  RNDsampleMean <- apply(array(unlist(RNDsample),c(length(AAset),4,reps)),c(1:2),mean)
+  rownames(RNDsampleMean)  <- AAset
+  RNDsampleSd <- apply(array(unlist(RNDsample),c(length(AAset),4,reps)),c(1:2),sd)
+  
+  write.table(CMAsampleMean/RNDsampleMean,paste0("relative_frequency",who,".txt"), sep="\t", col.names = F)
+  
+  se <- sqrt((CMAsampleSd^2/reps)+(RNDsampleSd^2/reps))
+  tValues <- (CMAsampleMean-RNDsampleMean)/se
+  pValues <- pt(-abs(tValues),df = (2*reps)-2)
+   #correction for multiple testing (Bonferroni)
+  pThreshold <- c(-Inf, 0.001, 0.01, 0.05, Inf)/(nrow(pValues)*4)
+  sigLabel <- matrix(cut(pValues, breaks=pThreshold, label=c("***", "**", "*", "")),length(AAset),4)
+  
+  range <- ceiling(max(max(1-min(CMAsampleMean/RNDsampleMean),0.3),max(max(CMAsampleMean/RNDsampleMean)-1,0.3))*10)/10
+  color_breaks <- c(seq(1-range,1+range, length = 60))
+  
+  png(paste0("images/individual_heatmap_sig_",who,".png"),width = 5*300,height = (2*(length*2+0.6))*300, res = 300)
+  heatmap.2(CMAsampleMean/RNDsampleMean,Colv=NA,Rowv=NA,trace="none",density.info="none",dendrogram="none",breaks=color_breaks,col=redblue(59), cellnote = sigLabel, notecex = 4, notecol = "black", margins = c(0,0), labCol=NA, keysize=0.5,key.title = NA, key.xlab=NA, key.par = list(cex=1.5),  key.xtickfun = function(){
+    list(at = seq(0,1,length = 5), labels = c(seq(1-range,1+range, length = 5)))
+  },lmat = matrix(c(1,1,4,1,1,4,0,2,3),3,3), lwid = c(1,1,0.5), lhei = c(length,length,0.6))
+  dev.off()
+}
+set.seed(123)
+makeRelHeatmaps("canonical", reps = 40)
+makeRelHeatmaps("phos", reps = 40)
+makeRelHeatmaps("K", reps = 40)
+```
+
+The amino acids can be grouped according to their biophysical properties into basic, acidic and hydrophobic
+
+```{r summing up groups}
+#This function calculates the percentages within the function in contrast to the individual amino acids
+makeRawGroupMatrix <- function(dataSet, order){
+
+  assignGroups <- function(x){ifelse(grepl("K|R",x),"B",ifelse(grepl("E|D|S|T|Y",x),"A","H"))}
+  dataSet <- dataSet %>% select(minus4,minus3,minus2,minus1,motif,orientation) %>% mutate_at(vars(minus4,minus3,minus2,minus1), funs(assignGroups(.)))
+
+  dataSet$minus4 <- as.character(dataSet$minus4)
+  dataSet$minus3 <- as.character(dataSet$minus3)
+  dataSet$minus2 <- as.character(dataSet$minus2)
+  dataSet$minus1 <- as.character(dataSet$minus1)
+
+  getAAall <- function( x){eval(parse(text=paste0("dataSet %>% group_by(",eval(x),") %>% summarise(n= n()) %>% select(AA=",eval(x), ",n) ")))}
+
+  AA <- setNames(lapply(c("minus4","minus3","minus2","minus1"),getAAall),c("minus4","minus3","minus2","minus1"))
+
+  AA_join <- full_join(AA$minus4,AA$minus3,by="AA")
+  AA_join <- full_join(AA_join,AA$minus2,by="AA")
+  AA_join <- full_join(AA_join,AA$minus1,by="AA")
+
+  colnames(AA_join)[2:5] <-c("minus4","minus3","minus2","minus1")
+  AA_join <-  AA_join[match(order,AA_join$AA),]
+
+  outputM <- as.matrix(AA_join[,2:5])
+  rownames(outputM)  <- unlist(AA_join[,1])
+  
+  totPerGroup <- rowSums(outputM)
+  outputM <- round(100*(outputM/totPerGroup),2)
+  return(outputM)
+}
+AAgroups <- c("B","H","A")
+```
+
+```{r heatmaps for the groups}
+makeRawGroupHeat <- function(who){
+  
+  subSet <- eval(parse(text=paste0("CMA.motifs %>% filter(",eval(who)," == 1)")))
+  CMA <- makeRawGroupMatrix(subSet,AAgroups)
+  #Similar as for the individual amino acids the color range was initially dynamic
+  #and later fixed to the largest range (from acetylation activated motifs)
+  #range <- ceiling(max(max(25-min(CMA),5),max(max(CMA)-25,5)))
+  range <- 7
+  color_breaks <- c(seq(25-range,25+range, length = 60))
+
+  
+  png(paste0("images/group_heatmap_raw_",who,".png"),width = 5*300,height = 4.2*300, res = 300)
+  heatmap.2(CMA,Colv=NA,Rowv=NA,trace="none",density.info="none",dendrogram="none",breaks = color_breaks, col=my_palette,  margins = c(0,0), labCol=NA, keysize=1.5,key.title = NA, key.xlab=NA, key.par = list(cex=1.5), key.xtickfun = function(){
+    list(at = seq(0,1,length = 5), labels = c(seq(25-range,25+range, length = 5)))
+  },  lmat = matrix(c(1,1,4,1,1,4,0,2,3),3,3), lwid = c(1,1,0.5), lhei = c(0.75,0.75,0.6))
+  dev.off()
+
+}
+
+my_palette <- colorRampPalette(c("white", "blue"))(n = 59)
+
+makeRawGroupHeat("canonical")
+makeRawGroupHeat("phos")
+makeRawGroupHeat("K")
+```

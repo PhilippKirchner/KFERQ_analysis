@@ -1,0 +1,363 @@
+---
+title: "Figure_4"
+output: html_document
+---
+
+This markdown file contains the necessary code to to generate the data and diagrams for Figure 4 and S4
+Several files generated in the markdown for Figure 1 are necessary to run these scripts
+
+The percentage of proteins with KFERQ-like motifs for the different organisms was gereated using the code for figure 1
+
+To find Lamp2A isoforms the Lamp tails of human were aligned against the nonredundant protein data set in BLAST using PHI-BLAST to restrict the sequence in the c-terminal tail
+
+Lamp2 tails:
+L2A   FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQDCSADDDNFLVPIAVGAALAGVLILVLLAYFIGLKHHHAGYEQF
+L2B   FSIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAQECSLDDDTILIPIIVGAGLSGLIIVIVIAYVIGRRKSYAGYQTL
+L2C   SIANNNLSYWDAPLGSSYMCNKEQTVSVSGAFQINTFDLRVQPFNVTQGKYSTAEECSADSDLNFLIPVAVGVALGFLIIVVFISYMIGRRKSRTGYQSV
+
+To find Lamp2A isoforms I blasted the Lamp tails of human against the nonredundant protein data set in BLAST using PHI-BLAST to restrict the sequence in the c-terminal tail
+For benchamrking of the search I used the following patterns
+
+The following regular expression was used to narrow down the results to the ones matching the specific C-terminal pattern of Lamp2A
+L2A: [KHR]-[KHR]-[KHR]-x(1,3)-G-Y-E-Q-F
+
+In addition patterns that allowed for amio acids of the same kind at the fixed positions were tested. Using this approach only few additonal hits were found.
+
+For comparison, the following patterns correspond to the C-terminal sequences of Lamp2B and Lamp2C
+L2B: G-Y-Q-T-L
+L2C: G-Y-Q-S-V
+
+```{r extract hits}
+extractParam <- function(hit, dataSet){
+  info <- dataSet[[hit]]$description
+  param <- dataSet[[hit]]$hsps[[1]]
+  
+  output <- list()
+  for (i in seq_len(length(info))){
+    subInfo <- info[[i]]
+    output[[i]] <- data.frame(title = subInfo$title, accession = subInfo$accession, taxid = subInfo$taxid, sciname = subInfo$sciname, stringsAsFactors = F)
+  }
+  output <- rbindlist(output)
+  output <- output %>% filter(!duplicated(taxid))
+  output <- output %>% mutate(len = dataSet[[hit]]$len, bit_score = param$bit_score, evalue = param$evalue, hit_from = param$hit_from, hit_to = param$hit_to, identity = param$identity, positive = param$positive, hseq = param$hseq)
+}
+
+getIsos <- function(name, positionFilter){
+  BLASTraw <- read_json(paste0(name,".json"))
+  BLASTraw <- BLASTraw$BlastOutput2[[1]]$report$results$search$hits
+
+  BLASThits <- list()
+  for (i in seq_len(length(BLASTraw))){
+   BLASThits[[i]] <- extractParam(i, BLASTraw)
+  }
+  BLASThits <- rbindlist(BLASThits)
+
+  BLASThits <- BLASThits %>% filter(evalue < 1e-5)
+  #If there are more sequences the ones with the higher score and lenth similar to human lamps (410 AA) are selected, the match has to be close to the end of the protein
+  #In some species the Lamp2A homology sequence is not exactly at the C-terminus.
+  #Because there is no experimental data about their behaviour they are considered no true hits
+  BLASThits <- BLASThits %>% group_by(taxid)  %>% filter(bit_score == max(bit_score), evalue == min(evalue), len - 410 == max(len-410))
+  if (positionFilter == T){
+    BLASThits <- BLASThits %>% filter(len - hit_to <= 5)
+  }
+  BLASThits$distanceFromC <- BLASThits$len - BLASThits$hit_to
+  BLASThits$lowQuality <- ifelse(grepl("(PREDICTED)|(LOW QUALITY)|(unnamed)|(hypothetical)",BLASThits$title),1,0)
+  BLASThits <- BLASThits %>% arrange(sciname)
+  write.table(BLASThits,paste0(name,"_hits.txt"))
+}
+
+L2A100_3K <- getIsos("L2A100_3K", positionFilter = T)
+```
+
+The taxonimic IDs can be used to generate phylogenetic trees using iTOL.embl.de
+The list of species with and without an Lamp2A isoform was combined with the list of species used in the TreeFam (treefam.org) orthologe prediction algorithm to yield a list ("species_tree_for_conservation.txt") of 50 species covering a wide range of evolutionary distinct organisms.
+
+```{r read files}
+testSpecies <- read.table("raw_data/species_tree_for_conservation.txt", sep ="\t", stringsAsFactors = F, header =T)
+colnames(testSpecies)[1] <- "taxid"
+#To be able to use EggNOG for the orthologue search UniProt IDs have to be converted into the EggNOG format
+EggNOG_names <- read.table("raw_data/EggNOG_identifiers.txt", sep ="\t", stringsAsFactors = F, header = T)
+colnames(EggNOG_names)[2] <- "EggNOG"
+CPKmodRef <- modRef %>% filter(canonical==1|phos==1|K==1)
+```
+
+```{r getting candiate file lists}
+#To avoid the complexity arising from several motifs per protein only proteins with one single canonical motif were investigated
+singleMotif <- CMA.filtered  %>% group_by(Entry) %>% summarise(canonical= sum(canonical), n = n()) %>% filter(canonical==1, n==1) %>% select(Entry) %>% unlist(.)
+
+testNOG <- EggNOG_names %>% filter(Entry %in% singleMotif)
+testNOG <- testNOG %>% filter(nchar(EggNOG) > 0)
+
+testNOG <- testNOG %>% mutate(firstNOG = sapply(strsplit(EggNOG,";"),"[",1))
+testNOG <- left_join(testNOG, select(all.prot, Entry, Length, Sequence), by = "Entry")
+testNOG <- left_join(testNOG, select(CMA.filtered, Entry, motif), by = "Entry")
+```
+
+```{r downloading ortholog lists plus BLAST searches}
+#For each of the peroteins to be tested the list of orthologes is downloaded from EggNOG
+#To reduce the effort needed for alignment later for each species only the two hits with the highest alignment score are chosen
+EggNOG <- "http://eggnogapi.embl.de/nog_data/json/fasta/"
+
+getRelevantOrthologs <- function(ID){
+  humanRefSeq <- testNOG$Sequence[ID]
+  NOGGid <- testNOG$firstNOG[ID]
+  #download the FASTA files from EggNOG (JSON)
+  for (i in seq_len(4)){
+    rawResult <- GET(url=paste0(EggNOG,NOGGid))
+    Sys.sleep(1)
+    if (rawResult$status_code == 200)break
+  }
+  FASTA <- fromJSON(rawToChar(rawResult$content))
+  FASTA <- strsplit(FASTA[[1]], ">")[[1]][-1]
+  #get the sequence headers and taxids
+  splitSequence <- function(x){
+   splitEntry <- unlist(strsplit(x, "\\n"))
+    data.frame( header = splitEntry[1], taxid = unlist(strsplit(splitEntry[1], "\\."))[1], sequence = splitEntry[2], stringsAsFactors = F)
+  }
+  FASTA <- rbindlist(lapply(FASTA,splitSequence))
+  FASTA <- FASTA %>% filter(taxid %in% testSpecies$taxid)
+  #remove human seqences because the actual query sequence will be attached later
+  FASTA <- FASTA %>% filter(!(taxid == 9606))
+  #filter sequences from organisms with > 2 hits for the two most similar sequences to the human query unsing the function orthoBLAST below
+  manyOrthos <- FASTA %>% group_by(taxid) %>% summarise(n = n()) %>% filter(n >2) %>% select(taxid) %>% unlist(.)
+  
+  orthoBLAST <- function(species){
+    orthos <- eval(parse(text=paste0("FASTA %>% filter(taxid == \"",eval(species),"\")")))
+    toBLAST <- orthos %>% mutate(FASTA = paste0(">",header,"\n",sequence))
+    write.table(paste0(toBLAST$FASTA, collapse = "\n"),"toBLAST.fa",quote=F, col.names = F, row.names = F)
+    #the restriction on the eValue are released because this caused problems if no hit was found
+    rawResult <- system("/usr/local/ncbi/blast/bin/blastp -query humanRefSeq.fa -subject toBLAST.fa -evalue 100 -outfmt 6", intern = T)
+    if (length(rawResult) != 0){
+      BLASTresult <- read.table(text = rawResult, sep = "\t", stringsAsFactors = F)
+    #The column names are: queryID, subjectID (V2), %id, alignment length, mismatches, gaps, query start, query end, subject start, subject end, evalue ("V11"), bitscore ("V12")
+    topBLAST <- BLASTresult %>% arrange(V11, desc(V12)) %>% filter(!duplicated(V2)) %>% slice(1:2) %>% select(V2) %>% unlist(.)
+    #In case the alignment returns no clear result (low alignment scores), the two first entries are chosen
+    return(filter(orthos, header %in% topBLAST))
+    } else{
+      return(slice(orthos,c(1:2)))
+    }
+  }
+  
+  if (length(manyOrthos)>0){
+    write.table(paste0(">humanRefSeq\n", humanRefSeq), "humanRefSeq.fa",quote=F, col.names = F, row.names = F)
+    topOrthos <- rbindlist(lapply(manyOrthos,orthoBLAST))
+    output <- rbind(filter(FASTA, !(taxid %in% manyOrthos)),topOrthos)
+  } else{
+    output <- FASTA
+  }
+  return(output)
+}
+
+#This loopfinds the orthologes for all proteins (in some cases there is no EggNOG matching the UniProtID or no orthologes were deposited in EggNOG)
+relOrth <- list()
+pb <- txtProgressBar(min = 0, max = nrow(testNOG), style = 3)
+for (i in seq_len(nrow(testNOG))){
+  tmpOrth <- getRelevantOrthologs(i)
+  if (nrow(tmpOrth) > 0){
+    tmpOrth$Entry <- testNOG$Entry[i]
+    tmpOrth$firstNOG <- testNOG$firstNOG[i]
+    relOrth[[length(relOrth)+1]] <- tmpOrth
+  }
+  setTxtProgressBar(pb, i)
+}
+close(pb)
+
+names(relOrth) <- sapply(seq_len(length(relOrth)),function(x){relOrth[[x]]$Entry[1]})
+saveRDS(relOrth,"relOrth_BLAST.Rds")
+```
+
+After identifying the orthologes the sequences are aligned to only look for motifs at the motif position in the corresponding humna protein. This reduces the number of false positives.
+For the alignments the seqaln function from the package bio3d is used. The function is based on the muscle algorithm
+
+```{r aligning sequences}
+#add the entry name to the list for easier identification of list elements
+makeAlignments <- function(x){
+  subSet <- relOrth[[x]]
+  forAln <- lapply(subSet$sequence, function(x){unlist(strsplit(x,split = ""))})
+  #add the human sequence as a reference
+  refSeq <- testNOG %>% filter(Entry %in% subSet$Entry) %>% select(Sequence) %>% unlist(.)
+  forAln[[length(forAln)+1]] <- unlist(strsplit(refSeq,split = ""))
+  
+  forAln <- do.call(seqbind,forAln)
+  forAln$id <- c(subSet$taxid,"humanRefSeq")
+  #Some sequences caused an error in the muscle algorithm.
+  #If this happens the exception is caught and the respective alignment is skipped
+  output <- tryCatch({
+    seqaln(forAln)
+  }, error = function(err){
+  print(err)
+  return("ERROR")
+  })
+  if (length(output) > 1)
+    return(output)
+}
+
+alignedSeq <- list()
+pb <- txtProgressBar(min = 0, max = length(relOrth), style = 3)
+for (i in seq_len(length(relOrth))){
+  result <- makeAlignments(i)
+  alignedSeq[[length(alignedSeq)+1]] <- result
+  if(length(result > 0))
+    names(alignedSeq)[length(alignedSeq)] <- names(relOrth)[i]
+  setTxtProgressBar(pb, i)
+}
+close(pb)
+
+saveRDS(alignedSeq,"canonical_alignedSeq_BLAST.Rds")
+```
+
+After alignment the aligning segments are extracted and tested for the presence of a KFERQ like motif of the same class as the original (in this case only canonical motifs were tested)
+
+```{r get motifs}
+#For each orthologe the first five amino acids after the position in the alignment corresponding to the position of the motif in the human sequence are selected.
+getConservedMotifs <- function(x){
+  subSet <- alignedSeq[[x]]
+  subSetEntry <- c(names(alignedSeq[x]))
+  aliLength <- ncol(subSet$ali)
+  #Since the alignment may introduces "_" characters for alignment gaps the regular expression has to be modified to allow for "_" between the amino acids
+  refMotif <- testNOG %>% filter(Entry %in% subSetEntry) %>% select(motif) %>% unlist(.)
+  refMotif <- unlist(strsplit(refMotif, split=""))
+  refMotif <- paste0(refMotif[1],"\\-*",refMotif[2],"\\-*",refMotif[3],"\\-*",refMotif[4],"\\-*",refMotif[5])
+  refPos <- regexpr(refMotif, paste0(subSet$ali[subSet$id == "humanRefSeq",],collapse=""))[[1]]
+  
+  getOrthPentas <- function(x){
+    tmpSeq <- subSet$ali[x,c(refPos:aliLength)]
+    tmpSeq[tmpSeq == "-"] <- ""
+    tmpSeq <- paste0(tmpSeq, collapse = "")
+    #If the number of amino acids selected is amaller than the necessary 5 an error motif "XXXXX" is generated
+    if (nchar(tmpSeq) < 5)
+      output <- data.frame(penta = "XXXXX", taxid = subSet$id[x], Entry = subSetEntry, refPos = refPos)
+    else
+      output <- data.frame(penta = substr(tmpSeq,1,5), taxid = subSet$id[x], Entry = subSetEntry, refPos = refPos)
+    return(output)
+  }
+  
+  output <- rbindlist(lapply(seq_len(nrow(subSet$ali)-1), getOrthPentas))
+  output$motif <- "NO"
+  output$motif[output$penta %in% filter(CPKmodRef, canonical ==1)$motif] <- "C"
+  output$motif[output$penta %in% filter(CPKmodRef, phos ==1)$motif] <- "P"
+  output$motif[output$penta %in% filter(CPKmodRef, K ==1)$motif] <- "K"
+  return(output)
+}
+
+identMotifs <- rbindlist(lapply(seq_len(length(alignedSeq)),getConservedMotifs))
+```
+
+```{r getting cons percent}
+getResults<- function(Entry, kind){
+  #If a motif of a different calss is found it will be counted less than a motif of the same class as in the human portein
+  other <- c("C","P","K")[!(c("C","P","K") %in% kind)]
+  subSet <- eval(parse(text=paste0("identMotifs %>% filter(Entry == \"",eval(Entry),"\")")))
+  #The taxids are saved as factors and have to be converted to integer before they can be used
+  subSet$taxid <- as.integer(as.character(subSet$taxid))
+  allSpecies <- left_join(testSpecies, subSet, by = "taxid")
+
+  sumUpHits <- function(score){
+    dataSet <- eval(parse(text=paste0("allSpecies %>% filter(CMA ",eval(score),")")))
+    
+    conserved <- dataSet %>% filter(motif %in% kind) %>% filter(!duplicated(taxid)) %>% summarise(n()) %>% unlist(.)
+    partial <- dataSet %>% filter(motif %in% other) %>% filter(!duplicated(taxid)) %>% summarise(n()) %>% unlist(.)
+    no <- dataSet %>% filter(motif == "NO") %>% filter(!duplicated(taxid)) %>% summarise(n()) %>% unlist(.)
+    noOrth <- dataSet %>% filter(is.na(motif)) %>% filter(!duplicated(taxid)) %>% summarise(n()) %>% unlist(.)
+    n = dataSet %>% filter(!duplicated(taxid)) %>% filter(!duplicated(taxid)) %>% summarise(n()) %>% unlist(.)
+    
+    return(data.frame(n = n, conserved = conserved, partial = partial, no = no, noOrth = noOrth))
+  } 
+  
+  return(rbindlist(setNames(lapply(c("==1","==0"),sumUpHits),c("CMA","noCMA")),idcol="group"))
+}
+
+consScores <- rbindlist(setNames(lapply(names(alignedSeq), getResults, kind = c("C")), names(alignedSeq)),idcol="Entry")
+
+#The two scores diffentially deal with the presence of missing orthologs
+#The easyScore ignores missing orthologes while a missing orthologe is penalized with -1
+#In both cases, a motif of a different kind recieves a score of 0.5 instead of 1
+consScores <- consScores %>% mutate(easyScore = (((conserved)*1)+(partial*0.5))/(n-noOrth), penaltyScore = ((conserved*1)+(partial*0.5)+(noOrth * -1))/n)
+consScores$easyScore[is.nan(consScores$easyScore)] <- 0
+```
+
+```{r plotting}
+makeConsScatter <- function(xAxis, yAxis, dataSet, labels){
+  plotDataX <- eval(parse(text=paste0("dataSet %>% filter(group == \"",eval(xAxis),"\") %>% mutate(easySx = easyScore, penSx = penaltyScore)")))
+  plotDataY <- eval(parse(text=paste0("dataSet %>% filter(group == \"",eval(yAxis),"\") %>% mutate(easySy = easyScore, penSy = penaltyScore)")))
+  
+  plotData <- left_join(plotDataX,plotDataY, by = "Entry")
+  topCons <- plotData %>% filter(penSx > 0 , penSy < 0) %>% summarise(n()) %>% unlist(.)
+  topCons <- round(100*(topCons/nrow(plotData)),digits=2)
+  
+  ggplot(plotData, aes(x =penSx, y = penSy)) + geom_point(alpha = 0.5,size = 1) + annotate("text", label = paste(topCons, "%"), x= 0.75, y = -0.75, color = "red", size = 3) + geom_hline(yintercept = 0, color = "blue") + geom_vline(xintercept = 0, color = "blue") + theme_classic() + labs(x = labels[1], y = labels[2]) + coord_cartesian(xlim=c(-1,1),ylim=c(-1,1)) + theme(axis.title = element_text(size = 9, color = "black"), axis.text = element_text(size = 9, color = "black"), axis.ticks = element_line(color="black"))
+}
+
+ggsave("images/CMAnoCMA_BLAST_fullpenalty.pdf",makeConsScatter("CMA","noCMA", dataSet = consScores, labels=c("CMA active species","CMA inactive species")), height = 3, width = 3, device = "pdf")
+```
+
+```{r heatmaps}
+#making heatmaps for the selectively conserved motifs only
+makeConsGroupHeat <- function(){
+  
+  subSetX <- consScores %>% filter(group == "CMA") %>% mutate(scoreX = penaltyScore) %>% select(Entry, scoreX)
+  subSetY <- consScores %>% filter(group == "noCMA") %>% mutate(scoreY = penaltyScore) %>% select(Entry, scoreY)
+  subSet <- left_join(subSetX,subSetY,by = "Entry")
+  subSet <- subSet %>% filter(scoreX > 0, scoreY < 0)
+  subSet <- left_join(subSet, testNOG, by = "Entry") %>% select(Entry, motif, scoreX, scoreY)
+  subSet <- left_join(subSet, modRef, by = "motif")
+  
+  write.table(subSet, "selectivelyCMAenriched.txt", sep="\t", row.names = F)
+  
+  #These functions are from the code for figure 3
+  CMAgroup <- makeRawGroupMatrix(subSet, order = c("B","H","A"))
+  
+  range <- ceiling(max(max(25-min(CMAgroup),5),max(max(CMAgroup)-25,5)))
+  color_breaks <- c(seq(25-range,25+range, length = 60))
+
+  my_palette <- colorRampPalette(c("white", "blue"))(n = 59)
+  
+  png(paste0("images/highCMA_lowNoCMA_heatmap_Group.png"),width = 5*300,height = 4.2*300, res = 300)
+  heatmap.2(CMAgroup,Colv=NA,Rowv=NA,trace="none",density.info="none",dendrogram="none",breaks = color_breaks, col=my_palette,  margins = c(0,0), labCol=NA, keysize=1.5,key.title = NA, key.xlab=NA, key.par = list(cex=1.5), key.xtickfun = function(){
+    list(at = seq(0,1,length = 5), labels = c(seq(25-range,25+range, length = 5)))
+  },  lmat = matrix(c(1,1,4,1,1,4,0,2,3),3,3), lwid = c(1,1,0.5), lhei = c(0.75,0.75,0.6))
+  dev.off()
+}
+makeConsGroupHeat()
+
+#The following is for the individual groups (could be combined with the AA group heatmaps)
+makeConsIndiHeat <- function(){
+  subSetX <- consScores %>% filter(group == "CMA") %>% mutate(scoreX = penaltyScore) %>% select(Entry, scoreX)
+  subSetY <- consScores %>% filter(group == "noCMA") %>% mutate(scoreY = penaltyScore) %>% select(Entry, scoreY)
+  subSet <- left_join(subSetX,subSetY,by = "Entry")
+  subSet <- subSet %>% filter(scoreX > 0, scoreY < 0)
+  subSet <- left_join(subSet, testNOG, by = "Entry") %>% select(Entry, motif, scoreX, scoreY)
+  subSet <- left_join(subSet, modRef, by = "motif")
+
+  #this function is from figure 3
+  CMAindi <- makeAAMatrix(subSet, order = c("K","R","I","L","V","F","E","D"))
+  totPerGroup <- rowSums(CMAindi)
+  CMAindi <- round(100*(CMAindi/totPerGroup),2)
+
+  range <- ceiling(max(max(25-min(CMAindi),5),max(max(CMAindi)-25,5)))
+    color_breaks <- c(seq(25-range,25+range, length = 60))
+    length = 2
+  
+    png(paste0("images/highCMA_lowNoCMA_heatmap_Indi.png"),width = 5*300,height = (2*(length*2+0.6))*300, res = 300)
+    heatmap.2(CMAindi,Colv=NA,Rowv=NA,trace="none",density.info="none",dendrogram="none",breaks = color_breaks, col=colorRampPalette(c("white", "blue"))(n = 59),  margins = c(0,0), labCol=NA, keysize=0.5,key.title = NA, key.xlab=NA, key.par = list(cex=1.5), key.xtickfun = function(){
+    list(at = seq(0,1,length = 5), labels = c(seq(25-range,25+range, length = 5)))
+  },lmat = matrix(c(1,1,4,1,1,4,0,2,3),3,3), lwid = c(1,1,0.5), lhei = c(length,length,0.6))
+  dev.off()
+  
+}
+makeConsIndiHeat()
+```
+
+
+In the analysis of disorder in the motif environment a sub set of proteins was chosen. This sub set has a relatively high disorder in the region around the motif when compared to the whole protein.
+For these proteins also the conservationscores are plotted together with the rstio of disorder motif/protein
+
+```{r conservation plot for a subSet}
+meanDis <- read.table("onlyOneCanon_disorder.txt", header = T, stringsAsFactors = F)
+meanDis <- meanDis %>% mutate(relDis = meanDisRegion/meanDisAll)
+filterVector <- meanDis %>% filter(relDis >1.2, meanDisRegion > 0.3) %>% select(Entry) %>% unlist(.)
+
+ggsave("images/highDis_BLAST_fullpenalty.pdf",makeConsScatter("CMA","noCMA", dataSet = filter(consScores, Entry %in% filterVector), labels=c("CMA active species","CMA inactive species")), height = 3, width = 3, device = "pdf")
+```
+
+

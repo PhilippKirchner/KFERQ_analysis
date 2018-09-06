@@ -1,0 +1,230 @@
+---
+title: "Figure_1"
+output: html_document
+---
+
+This markdown file contains the necessary code to to generate the data and diagrams for Figure 1 and S1
+
+```{r setup}
+invisible(lapply(c("ggplot2","dplyr","stringr", "data.table", "parallel","ggrepel","gplots","jsonlite","bio3d"), library, character.only=T))
+```
+
+## identifying all possible KFERQ-like motifs in amino acid sequences
+
+For a particular organism all amino acid sequences are obtained from UniProt and motifs are identified. After identification the motif data is read from file
+
+```{r get motifs}
+organism <- "Human"
+
+#The modRef file contains all possible permutations of the KFERQ-like motif
+modRef <- readRDS("raw_data/motif_modification_reference.Rds")
+#raw.prot is the list of all proteins sequences in the data set
+all.prot <- readRDS(paste0("raw_data/",organism,"_proteome.Rds"))
+
+#The "getMotifs" function splits a protein sequence in pentapeptides and saves the motifs 
+getMotifs <- function(x){
+  sequence <- all.prot$Sequence[x]
+  leftLimit <- 1:(nchar(sequence)-(5-1))
+  rightLimit  <- 5:nchar(sequence)
+  pentas <- mapply(substr,sequence,leftLimit,rightLimit,USE.NAMES=F)
+  motifStart <- leftLimit[pentas %in% modRef$motif]
+  
+  if (length(motifStart) > 0){
+    motifs <- data.frame(Entry = all.prot$Entry[x], motif = pentas[motifStart],motifStart, motifPos = motifStart + 2, Length = all.prot$Length[x], Status = all.prot$Status[x], stringsAsFactors = F)
+    motifs <- left_join(motifs, modRef, by = "motif")
+  }
+}
+
+CMA.motifs <- rbindlist(lapply(seq_len(nrow(all.prot)),getMotifs))
+
+saveRDS(CMA.motifs, paste0("raw_data/",organism,"_CMA.motifs.Rds"))
+```
+
+## Proteome wide percentage of proteins with KFERQ-like motifs
+
+For the initial analyses a hierarchical organization of the motif classes is used. Canonical motifs are considered before phosphorylation-activated motifs and acetylation-activated motifs. As a result, if a protein contais more than one kind of motif only the highest ranking motifs are considered.
+
+The proteome can be filtered to exclude unwanted protein entries. Generally only reviewed entries from the UniProt data base were used. Also motifs that would require acetylation and phosphorylation to become active were excluded because it is unlikely that the two modifications frequently occur in such a close distance.
+
+```{r generating tables}
+organism <- "Human"
+
+#variables for filtering data (set dataFilter to "no_filter" to avoid filtering)
+dataFilter <- "reviewed"
+#dataFilter <- "no_filter"
+filterTerm <- "filter(Status==\"reviewed\")"
+excludeN <- TRUE
+excludeN_phos <- TRUE
+excludeK_phos <- TRUE
+
+#The modRef file contains all possible permutations of the KFERQ-like motif
+modRef <- readRDS("raw_data/motif_modification_reference.Rds")
+#all.prot is the list of all proteins sequences in the data set
+all.prot <- readRDS(paste0("raw_data/",organism,"_proteome.Rds"))
+#CMA.motifs is the list of all identified motifs
+CMA.motifs <- readRDS(paste0("raw_data/",organism,"_CMA.motifs.Rds"))
+
+if (dataFilter != "no_filter"){
+  all.prot <- eval(parse(text=paste0("all.prot %>% ",eval(filterTerm))))
+  CMA.motifs <- eval(parse(text=paste0("CMA.motifs %>% ",eval(filterTerm))))
+}
+
+if (excludeN)
+  CMA.motifs <- CMA.motifs %>% filter(!(N == 1))
+if (excludeN_phos)
+  CMA.motifs <- CMA.motifs %>% filter(!(N_phos == 1))
+if (excludeK_phos)
+  CMA.motifs <- CMA.motifs %>% filter(!(K_phos == 1))
+
+CMA.motifs <- CMA.motifs %>% mutate(relPos = (motifStart)/(Length-4))
+
+#For some calculations the initiator Methionines may cause troubles. To avoid this a corrected relative position is calculated that shortens proteins with an initiator Methionine by one
+methionine <- all.prot %>% filter(grepl("^M",Sequence)) %>% select(Entry) %>% unlist(.)
+CMA.motifs <- CMA.motifs %>% mutate(relPos_corr = (motifPos-1)/(Length-1))
+CMA.motifs$relPos_corr <- ifelse(CMA.motifs$Entry %in% methionine, CMA.motifs$relPos_corr, CMA.motifs$relPos)
+rm(methionine)
+
+#For some calculations the fraction of each motif type in a particular protein needs to be known
+CMA.protRel <- CMA.motifs %>% group_by(Entry) %>% summarise( Length = first(Length), canoSum = sum(canonical),phosSum = sum(phos), KSum = sum(K), SerSum = sum(Ser), ThrSum = sum(Thr), TyrSum = sum(Tyr))
+CMA.protRel <- CMA.protRel %>% mutate(motifSum = canoSum+phosSum+KSum) %>%  mutate(canoFrac = round(canoSum/motifSum,digits=2), phosFrac = round(phosSum/motifSum,digits=2), KFrac = round(KSum/motifSum,digits=2))
+
+#Proteins are grouped according to their motif content
+#indiGroups indicates the 7 individual combinations of motifs (exncluding no motif)
+CMA.protRel <- rbindlist(setNames(lapply(c("phosSum == 0,KSum == 0","canoSum > 0, phosSum > 0, KSum == 0", "canoSum > 0, phosSum == 0, KSum > 0","canoSum > 0, phosSum > 0, KSum > 0","canoSum == 0, KSum == 0","canoSum == 0, phosSum > 0, KSum > 0", "canoSum == 0, phosSum == 0"), function(x){eval(parse(text=paste0("CMA.protRel %>% filter(",eval(x),")")))}),c("canonly","canoPhos","canoK","canoPhosK","phonly","phosK","Konly")),idcol="indiGroups")
+#topGroups indicates the three hierarchical groups (canon. > phos. > acetyl)
+CMA.protRel <- rbindlist(setNames(lapply(c("canoSum > 0", "canoSum == 0, phosSum > 0", "canoSum == 0, phosSum == 0"), function(x){eval(parse(text=paste0("CMA.protRel %>% filter(",eval(x),")")))}),c("canon","phos","Konly")),idcol="topGroups")
+#topMotifSum only counts the highest ranking motifs for each protein
+CMA.protRel$topMotifSum <- ifelse(CMA.protRel$topGroups == "canon",CMA.protRel$canoSum, ifelse(CMA.protRel$topGroups == "phos",CMA.protRel$phosSum,CMA.protRel$KSum))
+
+#This file contains only the highest ranking motifs in each protein
+CMA.filtered <- CMA.motifs %>%select(Entry, motif, motifStart, motifPos, relPos, relPos_corr, canonical, phos, K)
+CMA.filtered <- left_join(CMA.filtered, select(CMA.protRel, topGroups, Entry), by = "Entry")
+CMA.filtered <- rbindlist(lapply(c("topGroups == \"canon\",canonical == 1", "topGroups == \"phos\",phos == 1", "topGroups == \"Konly\",K == 1"),function(x){eval(parse(text=paste0("CMA.filtered %>% filter(",eval(x),")")))}))
+```
+
+Plotting of data
+
+```{r pie charts}
+#Generates pie charts for the hierachically ordered motif content
+makePie <- function(plotData,who,order){
+  nOfProt <- nrow(all.prot)
+  nOfNoMotif <- nrow(plotData)
+  plotData <- plotData %>% group_by(topGroups) %>% summarise(n =n()) %>% mutate(percent=round(100*(n/nOfProt),digits=2))
+  plotData <- rbind(plotData, data.frame(topGroups = "no_motif", n = nOfProt-nOfNoMotif, percent = round(100*((nOfProt-nOfNoMotif)/nOfProt),digits=2)))
+  plotData <-  plotData[match(order,plotData$topGroups),]
+  kind_of_motif <- factor(plotData$topGroups, levels = c(who))
+
+  ggplot(plotData, aes(x=factor(""),y=plotData$percent,fill=kind_of_motif)) + geom_bar(width=1,stat="identity") + coord_polar("y") + theme_classic()  + geom_text(aes(x=1.2,y = plotData$percent/2 + c(0, cumsum(plotData$percent)[-length(plotData$percent)]), label = plotData$percent), size=3) + scale_fill_manual(values=c("grey","chartreuse3","deepskyblue3","yellow2"), name="kind of motif", 
+                                                 breaks=c("canon", "phos", "Konly","no_motif"), labels=c("canonical","phosphorylation", "acetylation","no motif"))  + theme(plot.margin = unit(c(0,0.9,0,0),"inch"), axis.line=element_blank(), axis.ticks=element_blank(), axis.text = element_blank(),axis.title =  element_blank(),   legend.key.size = unit(0.15, "inch"), legend.title = element_text(size=9), legend.text = element_text(size=9), legend.position = c(1.25,0.5) ) 
+}
+
+ggsave(paste0("images/topGroup_pie_",dataFilter,".pdf"),  makePie(plotData= CMA.protRel,who=c("no_motif","Konly","phos","canon"), order=c("canon","phos","Konly","no_motif")), width=3, height=1.8,device = "pdf")
+
+#A bar plot showing the individual combinations of motifs underlying of the hierarchical ordering
+makeBar <- function(plotData, order){
+  nOfProt <- nrow(all.prot)
+  nOfNoMotif <- nrow(plotData)
+  plotData <- plotData %>% group_by(indiGroups) %>% summarise(n =n()) %>% mutate(percent=round(100*(n/nOfProt),digits=2))
+  plotData <- rbind(plotData, data.frame(indiGroups = "no_motif", n = nOfProt-nOfNoMotif, percent = round(100*((nOfProt-nOfNoMotif)/nOfProt),digits=2)))
+  kind_of_motif <-  factor(plotData$indiGroups, levels = order)
+  
+  ggplot(plotData, aes(x=kind_of_motif,y=percent)) + geom_bar(stat="identity", fill = "black") + theme_classic() + labs(title="proteins harboring combinations \nof KFERQ-like motifs",x=element_blank(),y="percent of proteome") + scale_x_discrete(labels = c("canonical","canonical, phos.","canonical, acetyl.","canonical, phos., acetyl.","phosphorylation","phos., acetyl.","acetylation","no motif")) + theme(axis.text.y=element_text(size=9, color="black"),axis.text.x=element_text(angle=45,hjust=1,vjust=1,size=9, color = "black"),plot.title=element_text(size=10, color="black"),axis.title.y=element_text(size=9,color="black")) + scale_y_continuous(expand=c(0,0)) + coord_cartesian(ylim=c(0,30))
+}
+
+ggsave("images/all_individual_classes.pdf", makeBar(plotData = CMA.protRel, order= c("canonly","canoPhos","canoK","canoPhosK","phonly","phosK","Konly","no_motif")), height = 3, width = 2.5, device = "pdf")
+```
+
+
+```{r scatter plots}
+#for the original data set and a pentapeptide motif with permutated amino acid sequence the number of motifs per protein is plotted against the protein length (for each group of proteins individually)
+#After considering the QQ and plots of residuals vs fitted values a log transformation of the number of motifs was chosen to improve normality
+#Likewise an analysis of outliers yielded 2 very long proteins (Mucin16 (Q8WXI7); Titin (Q8WZ42)) as clear outliers (Cook's distance > 1) that were subsequently ommitted from the data set
+makeTransXY <- function(who,outlier,whichCount){
+  
+  subSet <- CMA.protRel %>% filter(topGroups %in% who)
+  subSet <- eval(parse(text=paste0("subSet %>% select(motifN = ",eval(whichCount),", Length, Entry)")))
+  subSet <- subSet %>% filter(!(Entry %in% outlier))
+  
+  lin <- summary(lm(log(motifN) ~ Length, data = subSet))
+  rSqLabel <- paste("R^2 ==",round(lin$r.squared,digits=2))
+  RMSELabel <- paste("RMSE =",round(lin$sigma,digits=3))
+  
+  ggplot(subSet, aes(x=Length,y=motifN)) + geom_jitter(height=0,alpha=0.2)  + geom_smooth(method="lm",weight=0.5,fill="red") + annotate("text",label= rSqLabel,x=0.6*max(subSet$Length),y=4, size = 3, parse=T, hjust=0) + annotate("text", label =RMSELabel,x=0.6*max(subSet$Length),y=3, size = 3, hjust=0) +theme_classic() +  scale_x_continuous(expand=c(0,0)) +  scale_y_continuous( trans = "log2", breaks = c(1,2,4,8,16,32,64,128)) + coord_cartesian(xlim = c(0, max(subSet$Length)+200), ylim = c(0.95, max(subSet$motifN)+2)) + labs(x = "protein length (amino acids)", y="n of motifs / protein")  + theme(plot.title=element_text(size=10),axis.title.y=element_text(size=9),axis.title.x=element_text(size=9),axis.text.x=element_text(size=9, color="black"),axis.text.y=element_text(size=9,color="black"), axis.ticks = element_line(color="black")) 
+}
+
+ggsave("images/canonical_logN_XY_noJitter.pdf", makeTransXY(who = c("canon"), outlier = c("Q8WXI7","Q8WZ42"), whichCount = "topMotifSum"), height= 2.5, width = 2.75, device = "pdf")
+
+ggsave("images/phos_logN_XY_noJitter.pdf", makeTransXY(c("phos"), outlier = c("Q8WXI7","Q8WZ42"), whichCount = "topMotifSum"), height= 2.5, width = 2.75, device = "pdf")
+
+ggsave("images/K_logN_XY_noJitter.pdf", makeTransXY(c("Konly"), outlier = c("Q8WXI7","Q8WZ42"), whichCount = "topMotifSum"), height= 2.5, width = 2.75, device = "pdf")
+```
+
+```{r comparison of filtered and unfiltered data sets}
+#To compare the unfiltered with the filtered data set the unfiltered one has to be loded again
+#For all analyses it is generally assumed that the data set filtered for reviewed entries is used
+noFilter.prot <- readRDS(paste0("raw_data/",organism,"_proteome.Rds"))
+
+comparisonFreq <- function(noFilter,filter){
+  noFilter$ID <- "all entries"
+  filter$ID <- "reviewed entries"
+  combined <- rbind(noFilter,filter)
+  kind_of_motif <- factor(combined$ID)
+  ggplot(combined, aes(Length,color=kind_of_motif,..density..)) + geom_freqpoly(binwidth = 50, size=1) + theme_classic() + scale_color_manual(name="data set", values=c("red","blue")) + scale_x_continuous(expand = c(0,0)) + coord_cartesian(xlim=c(0,2500)) + labs(title="distribution of protein length",x="protein length (< 2500 amino acids)") + theme(plot.title = element_text(size = 9), axis.title.x = element_text(color = "black", size = 9), axis.title.y =  element_text(color = "black", size = 9),legend.position=c(0.7,0.6), axis.text = element_text(color = "black", size = 9), axis.ticks = element_line(color = "black"), plot.margin = unit(c(0.05,0.2,0.05,0.05),"inch"))
+}
+
+ggsave("images/comparisonFilter.pdf", comparisonFreq(select(noFilter.prot,Entry,Length),select(all.prot,Entry,Length)), height=2, width = 3.25, device = "pdf")
+```
+
+
+To analyze if the frequency and distribution of KFERQ-like motifs in the human proteome is different from random the sequences of the proteome were permutated and reanalyzed for the presence of KFERQ-like motifs
+This data set is also used to estimate the baseline for the positional preference of amino acids within the KFERQ like motif (figure 3)
+
+```{r making the permutated data set}
+set.seed(123)
+makeSeqPerm <- function(x){
+  sequence <- all.prot$Sequence[x]
+  #the sequence is split into amino acids, permutated and pasted back together
+  sequence <- paste0(sample(unlist(strsplit(sequence,""))), collapse="")
+  
+  leftLimit <- 1:(nchar(sequence)-(5-1))
+  rightLimit  <- 5:nchar(sequence)
+  pentas <- mapply(substr,sequence,leftLimit,rightLimit,USE.NAMES=F)
+  
+  motifStart <- leftLimit[pentas %in% modRef$motif]
+  
+  if (length(motifStart) > 0){
+    motifs <- data.frame(Entry = all.prot$Entry[x], motif = pentas[motifStart],motifStart, motifPos = motifStart + 2, Length = all.prot$Length[x], Status = all.prot$Status[x], stringsAsFactors = F)
+    motifs <- left_join(motifs, modRef, by = "motif")
+  }
+}
+
+CMA.motifsPerm <- rbindlist(lapply(seq_len(nrow(all.prot)),makeSeqPerm))
+
+#Like the original data set the results have to be filtered to remove motifs not included in the analysis
+if (excludeN)
+  CMA.motifsPerm <- CMA.motifsPerm %>% filter(!(N == 1))
+if (excludeN_phos)
+  CMA.motifsPerm <- CMA.motifsPerm %>% filter(!(N_phos == 1))
+if (excludeK_phos)
+  CMA.motifsPerm <- CMA.motifsPerm %>% filter(!(K_phos == 1))
+
+saveRDS(CMA.motifsPerm, paste0("raw_data/",organism,"_CMA.motifs_permutated.Rds"))
+```
+
+```{r get amino acid frequencies}
+#Initially, for each organism the percentages of amino acids in the proteome have to be determined
+#This data can be used in an alternative approach to genrate a randomized proteome
+library(seqinr)
+getTotalAA <- function(x){
+  Seq <-eval(parse(text=paste0("all.prot %>% filter(Entry==\"",eval(x),"\") %>% select(Sequence) %>% unlist(.)")))
+  AAstat(unlist(strsplit(Seq,split="")),plot=F)$Compo %>% as.list(.)
+}
+totalAA <- rbindlist(setNames(lapply(all.prot$Entry,getTotalAA),total.prot$Entry),idcol="Entry")
+AApercent <- totalAA %>% summarise_at(vars(2:ncol(totalAA)),funs(100*(sum(.)/sum(all.prot$Length))))
+colnames(AApercent) <- colnames(totalAA)[2:ncol(totalAA)]
+
+saveRDS(AApercent,paste0("raw_data/AApercent_",organism,"_",dataFilter,".Rds"))
+```
+
+
+
