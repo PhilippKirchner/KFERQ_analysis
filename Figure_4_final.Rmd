@@ -288,6 +288,8 @@ makeConsScatter <- function(xAxis, yAxis, dataSet, labels){
   ggplot(plotData, aes(x =penSx, y = penSy)) + geom_point(alpha = 0.5,size = 1) + annotate("text", label = paste(topCons, "%"), x= 0.75, y = -0.75, color = "red", size = 3) + geom_hline(yintercept = 0, color = "blue") + geom_vline(xintercept = 0, color = "blue") + theme_classic() + labs(x = labels[1], y = labels[2]) + coord_cartesian(xlim=c(-1,1),ylim=c(-1,1)) + theme(axis.title = element_text(size = 9, color = "black"), axis.text = element_text(size = 9, color = "black"), axis.ticks = element_line(color="black"))
 }
 
+consScores <- conScores %>% filter(Entry %in% testNOG$Entry)
+
 ggsave("images/CMAnoCMA_BLAST_fullpenalty.pdf",makeConsScatter("CMA","noCMA", dataSet = consScores, labels=c("CMA active species","CMA inactive species")), height = 3, width = 3, device = "pdf")
 ```
 
@@ -349,15 +351,6 @@ makeConsIndiHeat()
 ```
 
 
-In the analysis of disorder in the motif environment a sub set of proteins was chosen. This sub set has a relatively high disorder in the region around the motif when compared to the whole protein.
-For these proteins also the conservationscores are plotted together with the rstio of disorder motif/protein
 
-```{r conservation plot for a subSet}
-meanDis <- read.table("onlyOneCanon_disorder.txt", header = T, stringsAsFactors = F)
-meanDis <- meanDis %>% mutate(relDis = meanDisRegion/meanDisAll)
-filterVector <- meanDis %>% filter(relDis >1.2, meanDisRegion > 0.3) %>% select(Entry) %>% unlist(.)
-
-ggsave("images/highDis_BLAST_fullpenalty.pdf",makeConsScatter("CMA","noCMA", dataSet = filter(consScores, Entry %in% filterVector), labels=c("CMA active species","CMA inactive species")), height = 3, width = 3, device = "pdf")
-```
 
 

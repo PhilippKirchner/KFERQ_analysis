@@ -9,6 +9,8 @@ This markdown file contains the necessary code to to generate the data and diagr
 invisible(lapply(c("ggplot2","dplyr","stringr", "data.table", "parallel","ggrepel","gplots","jsonlite","bio3d"), library, character.only=T))
 ```
 
+R software and package version can be found in R_SessionInfo.txt
+
 ## identifying all possible KFERQ-like motifs in amino acid sequences
 
 For a particular organism all amino acid sequences are obtained from UniProt and motifs are identified. After identification the motif data is read from file
@@ -175,7 +177,6 @@ comparisonFreq <- function(noFilter,filter){
 ggsave("images/comparisonFilter.pdf", comparisonFreq(select(noFilter.prot,Entry,Length),select(all.prot,Entry,Length)), height=2, width = 3.25, device = "pdf")
 ```
 
-
 To analyze if the frequency and distribution of KFERQ-like motifs in the human proteome is different from random the sequences of the proteome were permutated and reanalyzed for the presence of KFERQ-like motifs
 This data set is also used to estimate the baseline for the positional preference of amino acids within the KFERQ like motif (figure 3)
 
@@ -226,5 +227,36 @@ colnames(AApercent) <- colnames(totalAA)[2:ncol(totalAA)]
 saveRDS(AApercent,paste0("raw_data/AApercent_",organism,"_",dataFilter,".Rds"))
 ```
 
+```{r motifs per protein}
+# one question was the number of motifs per protein.
+# Since many proteins harbor more than one kind of motif the hierarcical ordering of motifs was applied
+motifsPerProt <- function(dataSet){
+  # unfortunately the two data sets show individual motifs or motif sums already and have to be treated differently
+  if ("indiGroups" %in% colnames(dataSet)){
+    plotData <- dataSet %>% mutate(n = canoSum + phosSum + KSum)
+    plotID <- "all"
+  }
+  else{
+    # The CMA filtered list is already prepared to only contain the motifs of the top ranking group per protein
+    plotData <- dataSet %>% group_by(Entry) %>% summarise(n = n(), topGroups = first(topGroups))
+    plotID <- "hierarchy"
+  }
+  
+  print(quantile(plotData$n))
+  
+  plotData$topGroups <- factor(plotData$topGroups, levels = c("canon", "phos", "Konly"))
+  hist <- ggplot(plotData, aes(n, fill = topGroups)) + geom_histogram(position = "stack",binwidth = 1, center = 0) + theme_classic() + scale_x_continuous(expand = c(0,0)) + scale_fill_manual(values=c("yellow2","deepskyblue3","chartreuse3"), name="kind of motif",   labels=c("canonical","phosphorylation", "acetylation")) + coord_cartesian(xlim = c(0,15)) + labs(x = "motifs per protein", y = "number of proteins") + theme(axis.title.x = element_text(color = "black", size = 9), axis.title.y =  element_text(color = "black", size = 9), axis.text = element_text(color = "black", size = 9), axis.ticks = element_line(color = "black"),legend.position=c(0.7,0.6), legend.key.size = unit(0.15, "inch"), legend.title = element_text(color = "black", size = 9))
+  
+  ggsave(paste0("images/motifs_per_prot_",plotID,".pdf"),hist, width = 4, height = 3, device = "pdf")
+  
+  box <- ggplot(plotData, aes(y = n, x = "human proteome")) + geom_boxplot() + theme_classic() + labs(x = "", y = "motifs per protein") + theme(axis.title.y =  element_text(color = "black", size = 9), axis.text = element_text(color = "black", size = 9), axis.ticks = element_line(color = "black"))
+  
+  ggsave(paste0("images/motifs_per_prot_",plotID,"_box.pdf"),box, width = 1.5, height = 2, device = "pdf")
+}
 
+motifsPerProt(CMA.filtered)
+motifsPerProt(CMA.protRel)
+#ggsave("images/motifs_per_prot_hierarchy.pdf",motifsPerProt(CMA.filtered), width = 4, height =3, device = "pdf")
+#ggsave("images/motifs_per_prot_all.pdf",motifsPerProt(CMA.protRel), width = 4, height =3, device = "pdf")
+```
 

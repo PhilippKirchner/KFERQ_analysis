@@ -191,3 +191,21 @@ write.table(FTresults,"customGO_pz_indi_groups.txt", sep ="\t", row.names = F)
 
 ggsave("images/indiGroups.pdf", makeTopGO_bar(classes = c("canonly","canoPhos","canoK","canoPhosK","phonly","phosK","Konly")) , height = 3 , width = 6, device="pdf")
 ```
+
+The annotation density for different groups can be compared
+
+```{r comparing annotation densities}
+GODensity <- all.prot  %>% group_by(Entry) %>% summarise(GOnumber = length(unlist(gregexpr(":",`Gene ontology (GO)`)))) 
+GODensity <- left_join(GODensity,select(all.prot,Entry,Status,`Gene ontology (GO)`), by ="Entry")
+GODensity$GOnumber <- ifelse(nchar(GODensity$`Gene ontology (GO)`)==0,0,GODensity$GOnumber)
+
+GODensity <- left_join(GODensity, select(CMA.protRel, Entry, topGroups), by = "Entry")
+GODensity$topGroups[is.na(GODensity$topGroups)] <- "no_motif"
+```
+
+```{r plots}
+GODensity$topGroups <- factor(GODensity$topGroups, levels = c("canonical","phosphorylation","acetylation","no_motif"))
+
+GOboxKind <- ggplot(GODensity,aes(y=GOnumber,x=topGroups)) + geom_boxplot(outlier.size = NA) + stat_summary(fun.y =mean, color = "black",geom = "point", shape = 18, size = 1.5, show_guide=F)+ theme_classic() + theme(axis.text.x=element_text(angle=45,hjust=1,vjust=1,size=9, color = "black"),axis.text.y=element_text(size=9,color="black"), plot.title = element_text(size=10),axis.title.x = element_text(size=9),axis.title.y = element_text(size=9)) + coord_cartesian(ylim=c(0,35))  +labs(y = "n of GO terms / protein ", x = element_blank())
+ggsave("GOdensity_Kind_Status.pdf", GOboxKind, height=2, width = 1.75, device = "pdf")
+```

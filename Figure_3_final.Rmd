@@ -200,3 +200,96 @@ makeRawGroupHeat("canonical")
 makeRawGroupHeat("phos")
 makeRawGroupHeat("K")
 ```
+
+comparison of amino acid frequencies in KFERQ motif-containing proteins vs proteins without a motif
+
+```{r}
+CMA.aas <- c("K","R","I","L","V","F","E","D")
+
+human.CMAdf <- all.prot %>% filter(Entry %in% CMA.protRel$Entry) %>% select(Entry, Sequence, Length)
+human.CMA.sum <- sum(human.CMAdf$Length)
+human.CMA <- lapply(CMA.aas, getCount, prot = human.CMAdf, aa.sum = human.CMA.sum)
+names(human.CMA) <- CMA.aas
+human.CMA <-as.data.frame(human.CMA)
+human.CMA$group <- "CMA"
+
+human.noCMAdf <- all.prot %>% filter(!(Entry %in% CMA.protRel$Entry)) %>% select(Entry, Sequence, Length)
+human.noCMA.sum <- sum(human.noCMAdf$Length)
+human.noCMA <- lapply(CMA.aas, getCount, prot = human.noCMAdf, aa.sum = human.noCMA.sum)
+names(human.noCMA) <- CMA.aas
+human.noCMA <-as.data.frame(human.noCMA)
+human.noCMA$group <- "noCMA"
+
+human.dif <- bind_rows(human.CMA, human.noCMA)
+```
+
+```{r}
+pdf("aaperc_CMA_vs_noCMA_unscaled.pdf",width = 4, height = 3) #, res = 300)
+heatmap.2(as.matrix(human.dif[,c(1:8)]), Rowv = F, Colv = F, scale = "none", dendrogram = "none", trace = "none", labRow = human.dif$group, col = redblue, density.info = "none", margins = c(6,6), lmat = matrix(c(1,4,1,4,1,2,0,3),2,4), lwid = c(1,1,1,1), lhei = c(0.5,0.4), key.title = NA)
+dev.off()
+```
+
+The following functions were used to calculate the frequency of relevant amino acids in a number of species. Since some of the information was already computed at the time of analysis for some species the data is loaded from file. To recreate this result from scratch these species need to be included in the "proteome.list"
+
+```{r aa from prot}
+# genomes were downloaded from UniProt
+proteome.list <- c("a_mellifera","c_elegans","c_lupus_familiaris","d_rerio","e_caballus","g_gallus","m_mulatta","r_norvegicus","s_mansoni","x_tropicalis")
+
+getCount <- function(aa, prot, aa.sum){
+  counts <- gregexpr(aa, prot$Sequence)
+  total_count <- sum(sapply(seq_len(length(counts)), function(x){length(unlist(counts[x]))}))
+  returnaa = (total_count/aa.sum)*100
+}
+
+calcAA <- function(name, aas){
+  prot <- read.table(paste0("proteomes_amino_acids/prot_",name,".tab.gz"), sep = "\t", header = T, stringsAsFactors = F)
+  aa.sum <- sum(prot$Length)
+  aa.list <- lapply(aas, getCount, prot = prot, aa.sum = aa.sum)
+  names(aa.list) <- aas
+  as.data.frame(aa.list)
+}
+
+CMA.aas <- c("K","R","I","L","V","F","E","D")
+
+aas.prot <- bind_rows(lapply(proteome.list, calcAA, aas = CMA.aas))
+aas.prot$organism <- proteome.list
+
+#tmp <- calcAA("r_norvegicus", c("K","R","I","L","V","F","E","D"))
+
+```
+
+The amino acid frequencies were already computed for some organisms
+
+```{r aa from file}
+pre.calc <- c("Fly", "Human", "Mouse", "Yeast")
+
+getAAfromFile <- function(name){
+  aaper <- read.csv(paste0("proteomes_amino_acids/AAfrequencies_percent_",name,".csv"), header = T, stringsAsFactors = F)
+  aaper <- aaper %>% filter(`.id` == "total.prot") %>% select(K,R,I,L,V,`F`,E,D)
+  return(aaper)
+}
+
+aas.file <- bind_rows(lapply(pre.calc,getAAfromFile))
+aas.file$organism <- c("d_melanogaster","h_sapiens","m_musculus","s_saccharomyces")
+```
+
+```{r combining}
+aas.all <- bind_rows(aas.prot, aas.file)
+aas.all$CMA <- c(0,0,1,0,1,1,1,1,0,0,0,1,1,0)
+
+aas.all <- aas.all %>% arrange(desc(CMA))
+
+write.csv(aas.all,"aaperc_species.csv", row.names = F)
+write.xlsx(aas.all,"aaperc_species.xlsx")
+
+write.xlsx(mutate_at(aas.all,vars(c(1:8)), funs(./mean(.))), "aaperc_species_norm.xlsx")
+```
+
+```{r saving plots}
+#png("aaperc_scaled.png",width = 5*300, height = 5.5 *300, res = 300)
+pdf("aaperc_scaled.pdf", width = 5, height = 5.5)
+heatmap.2(as.matrix(aas.all[,c(1:8)]), Rowv = F, Colv = F, scale = "column", dendrogram = "none", trace = "none", labRow = aas.all$organism, col = redblue, density.info = "none", lmat = matrix(c(1,1,1,4,1,1,1,4,1,1,1,0,0,0,2,3),4,4), lwid = c(1,1,1,1), lhei = c(1,1,1,1), key.title = NA)
+dev.off()
+
+```
+
