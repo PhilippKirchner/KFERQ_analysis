@@ -11,20 +11,41 @@ The proteome and motif tables are then used to build all necessary tables for th
 The raw data do rebuild the figures is located in the folder "raw_data_figures" as .csv tables
 
 ## further raw data
-The relevant raw data to retrace the analysis script can be found in the archive "raw_data.tar.gz":  
+The relevant raw data to retrace the analysis script can be found in the archive "raw_data.zip":  
   
-**human_proteome** UniProtKB human proteome (UP000005640), downloaded 1/16/2018  
-**human_CMA_motifs** CMA motifs identified in the human proteome  
-**motif_modification_reference** (contains information about all possible KFERQ-like motifs)  
-**known_substrates_motivs** CMA motifs identified in known CMA substrates  
-**known_substrates_output_jnet** JPred4 prediction results for the known CMA substrates  
+**human_proteome** UniProtKB human proteome (UP000005640), downloaded 1/16/2018
+  
+**human\_CMA_motifs** CMA motifs identified in the human proteome 
+ 
+**motif\_modification_reference** (contains information about all possible KFERQ-like motifs) 
+
+**known\_substrates_motivs** CMA motifs identified in known CMA substrates  
+
+**known\_substrates_output_jnet** JPred4 prediction results for the known CMA substrates  
+
 **confirmed_motifs** pdb structres and structure predictions for known CMA substrates  
-**one_canon_output_jnet** JPred4 prediction results for proteins with one single canonical motif  
+
+**one\_canon\_output\_jnet** JPred4 prediction results for proteins with one single canonical motif  
+
 **L2A100_3K.json** (result of the BLAST search for LAMP-2A isoforms)  
-**species_tree_for_conservation** (taxonomic IDs of the CMA-able and unable species)  
+
+**species\_tree\_for_conservation** (taxonomic IDs of the CMA-able and unable species)  
+
 **EggNOG_identifiers.txt** (used to translate from UniProt to EggNOG IDs)  
-**newGO_custom_names.csv** (list of GO terms used for the enrichment analysis)  
-**map2slim_output_tsv.txt** (mapping of child GO terms to the specified parent terms)  
+
+**newGO\_custom_names.csv** (list of GO terms used for the enrichment analysis)  
+
+**map2slim\_output_tsv.txt** (mapping of child GO terms to the specified parent terms)  
+
 **ratios_list.json** (mapping of the fractional motif content into bins for the triangle plots)  
-**conf_motifs** (folder containing structural information for the experimentally confirmed CMA substrates)  
+
+**conf_motifs** (folder containing structural information for the experimentally confirmed CMA substrates) 
+
+**human_db.csv** (Uniprot reviewed proteins and associated KFERQ-like motif content)
+
+**customGO\_pz\_triangle_groups.txt** (results of GO analysis using the custom GO database for triangle plots)
+
+**customGO\_pz\_reviewed_oneN.txt** (results of GO analysis using the custom GO database for Asparagine-generated motifs)
+
+**human\_compartment\_knowledge_full.tsv** (COMPARTMENTS database downloaded from https://compartments.jensenlab.org/Search)
 
