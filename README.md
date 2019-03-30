@@ -1,6 +1,9 @@
-# KFERQ_analysis
+# Proteome-wide analysis of chaperone-mediated autophagy targeting motifs
 
-## This repository contains the scripts used for the analysis of KFERQ-like CMA targeting in the human proteome.
+##Kirchner et al. 2019
+
+
+This repository contains the scripts used for the analysis of KFERQ-like CMA targeting in the human proteome.
 
 The scripts are arranged according to the figures in Kirchner et. al. 2019. Since later figures build on the data of previous ones scripts should be run in order to ensure all necessary intermediate files are generated.  
   
