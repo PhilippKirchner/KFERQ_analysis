@@ -1,6 +1,6 @@
 # Proteome-wide analysis of chaperone-mediated autophagy targeting motifs
 
-##Kirchner et al. 2019
+## Kirchner et al. 2019
 
 
 This repository contains the scripts used for the analysis of KFERQ-like CMA targeting in the human proteome.
